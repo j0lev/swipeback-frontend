@@ -1,13 +1,14 @@
-import { useState } from 'react'
-import '../App.css'
 import { useParams } from 'react-router-dom'
+import JsonData from "../../testfiles/test-feedback.json"
+import Headline from '../components/headline';
 
 function Feedback() {
     let { fbnr } = useParams();
+    console.log(JsonData.dozent);
 
   return (
     <>
-      <h1>hallo Welt {fbnr}</h1>
+      <Headline>Feedback for: {JsonData.topic} taught by {JsonData.dozent.titel} {JsonData.dozent.vorname} {JsonData.dozent.name}</Headline>
     </>
   )
 }

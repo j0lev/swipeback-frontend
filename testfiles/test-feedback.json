@@ -1,0 +1,19 @@
+{
+    "topic":"LinAlg",
+    "dozent":{
+        "titel": "Prof. Dr. rer. nat.",
+        "name":"Davicsis",
+        "vorname": "Marcel"
+    },
+
+    "slider": [
+        {
+            "id": "1111",
+            "emoji": "lightbulb",
+            "color": "red",
+            "explanation":"frischkäse ist lecker"
+        }
+    ]
+
+
+}
