@@ -1,15 +1,39 @@
 import { useParams } from 'react-router-dom'
+import { useState } from "react";
+import VerticalSlider from "../components/VerticalSlider"
 import JsonData from "../../testfiles/test-feedback.json"
 import Headline from '../components/headline';
 import Questiontext from '../components/questiontext';
 import "../styles/fb-page.css";
+
 
 function Feedback() {
     let { fbnr } = useParams();
     console.log(JsonData.dozent);
     let scheight = screen.height*0.60;
     scheight= scheight+"px";
-    let time = Date.now();
+    const [questions, setQuestions] = useState([]);
+    let onKeyPressQuestion = (event)=>{
+       if (event.key === 'Enter') {
+          askQuestion();
+        // Your action here
+        }
+    }
+
+    let askQuestion= ()=>{
+      if(document.getElementById("question").value!=""){
+        let txt = document.getElementById("question").value;
+        document.getElementById("question").value="";
+        let time = Date.now();
+        setQuestions([
+          ...questions,
+          {
+            text: txt,
+            time: time
+          }
+        ])
+      }
+    }
 
   return (
     <>
@@ -22,19 +46,35 @@ function Feedback() {
               <div className='card-body h-100'>
                 
                 <div id='questions' data-bs-spy="scroll" data-bs-offset="0" className="h-90 overflow-auto mb-3" tabindex="0">
-                  <Questiontext time={time}>Hier könnte ihre werbung stehen</Questiontext>
+                  
+                  {questions.map( function(item) {
+                    console.log("test");
+                     return <Questiontext time={item.time} >{item.text}</Questiontext>                    
+                  } )}
         
                 </div>
                 <div class="input-group mt-1">
-                  <input id='question' type="text" className="form-control" placeholder="Question" aria-label="Question" aria-describedby="button-addon2"/>
-                  <button className="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                  <input onKeyDown={onKeyPressQuestion} id='question' type="text" className="form-control" placeholder="Question" aria-label="Question" aria-describedby="button-addon2"/>
+                  <button className="btn btn-outline-secondary" onClick={askQuestion} type="button" id="button-addon2">Button</button>
                 </div>
               
               </div>
             </div>
           </div>
           <div className='col h-100'>
-            <div className='card h-100' ></div>
+            <div className='card h-100' >
+              <div className="card-body">
+                <div className='container h-100'>
+                  <div className='row h-100'>
+                    <VerticalSlider color="blue" info="test"></VerticalSlider>
+                
+                    <VerticalSlider color="red" info="test2"></VerticalSlider>
+                
+                    <VerticalSlider color="green" info="test3"></VerticalSlider>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
