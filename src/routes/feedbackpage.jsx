@@ -9,7 +9,6 @@ import "../styles/fb-page.css";
 
 function Feedback() {
     let { fbnr } = useParams();
-    console.log(JsonData.dozent);
     let scheight = screen.height*0.60;
     scheight= scheight+"px";
     const [questions, setQuestions] = useState([]);
@@ -48,7 +47,6 @@ function Feedback() {
                 <div id='questions' data-bs-spy="scroll" data-bs-offset="0" className="h-90 overflow-auto mb-3" tabindex="0">
                   
                   {questions.map( function(item) {
-                    console.log("test");
                      return <Questiontext time={item.time} >{item.text}</Questiontext>                    
                   } )}
         

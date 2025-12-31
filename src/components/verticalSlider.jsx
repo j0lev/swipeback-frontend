@@ -5,12 +5,20 @@ import { useId } from "react";
 function VerticalSlider(params) {
     let barvolume = useId();
     let bar = useId();
+    let infobox = useId();
     let onClickInformation = ()=>{
-        console.log(params.info);
+        let element = document.getElementById(infobox);
+        if(!element.classList.contains("infobox-visible")){
+            if(document.querySelector(".infobox-visible")!=null){
+                document.querySelector(".infobox-visible").classList.remove("infobox-visible");
+            }
+            element.classList.add("infobox-visible");
+
+        }
     } 
 
     let onClickSlide = (event) =>{
-        if(!event.target.className.includes("icon-dot-box")){
+        if(!(event.target.classList.contains("icon-dot-box")||event.target.classList.contains("icon-dot")||event.target.tagName =="path")){
             let target = document.getElementById(barvolume);
             let percent = Math.round((1-((event.clientY- target.getBoundingClientRect().top)/target.getBoundingClientRect().height))*10)*10;
             document.getElementById(bar).style="height: "+percent+"%; background: "+params.color;
@@ -20,13 +28,18 @@ function VerticalSlider(params) {
     return (
         <>
             <div className="col d-flex justify-content-center">
-                <div className="container">
+                <div className="container position-relative">
                     <div className="row h-90 d-flex justify-content-center">
                         <div id={barvolume} className="progress progress-bar-vertical" onClick={onClickSlide}>
                             <div id={bar} onClick={onClickSlide} className="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style={{ height: "50%" , background: params.color}}></div>
 
-                            <div  className="icon-dot-box" onClick={onClickInformation}><ThreeDots className="icon-dot"  color="black" size={20}></ThreeDots></div>    
+                            <div  className="icon-dot-box" onClick={onClickInformation}>
+                                <ThreeDots className="icon-dot"  color="black" size={20}></ThreeDots>
+                                
+                            </div>   
+                            
                         </div>
+                        <div id={infobox} className="infobox">{params.info}</div> 
                     </div>
                     <div className="row h-10  d-flex justify-content-center">
                         <div className="icon-box" style={{background: params.color}}>

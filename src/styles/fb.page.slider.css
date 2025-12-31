@@ -20,6 +20,19 @@ padding: 0;
   transition: height 0.6s ease;
 }
 
+.infobox{
+    visibility: hidden;
+    position: absolute;
+  top: -10px;
+  border-radius: 3px;
+  background: lightgray;
+
+}
+
+.infobox-visible{
+    visibility: visible;
+}
+
 .icon-dot-box{
     position: absolute;
     top:  0;
