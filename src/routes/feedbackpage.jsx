@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+//import { useParams } from 'react-router-dom'
 import { useState } from "react";
 import VerticalSlider from "../components/VerticalSlider"
 import JsonData from "../../testfiles/test-feedback.json"
@@ -8,7 +8,7 @@ import "../styles/fb-page.css";
 
 
 function Feedback() {
-    let { fbnr } = useParams();
+    //let { fbnr } = useParams();
     let scheight = screen.height*0.60;
     scheight= scheight+"px";
     const [questions, setQuestions] = useState([]);
@@ -80,4 +80,4 @@ function Feedback() {
   )
 }
 
-export default Feedback
+export default Feedback;

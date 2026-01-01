@@ -32,4 +32,4 @@ function Landingpage() {
   )
 }
 
-export default Landingpage
+export default Landingpage;
