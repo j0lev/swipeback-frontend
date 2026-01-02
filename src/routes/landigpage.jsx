@@ -34,16 +34,20 @@ function Landingpage() {
   )
 }*/
 function Landingpage() {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  const goToFeedback = () => {
-    navigate("/fb/123"); // replace 123 with a test feedback number
+    const goToFeedback = () => {
+      navigate("/fb/123"); 
+    };
+    const goProfPage = () => {
+    navigate("/prof"); 
   };
 
   return (
     <div>
       <h1>Landing Page</h1>
       <button onClick={goToFeedback}>Go to Feedback</button>
+      <button onClick={goProfPage}>Go to Prof view</button>
     </div>
   );
 }
