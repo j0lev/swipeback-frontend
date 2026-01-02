@@ -1,4 +1,26 @@
+import DayTimeSelector from "../components/daytimeselector";
+import { useState } from "react"; 
+
 function NewCourse() {
+    let [daySelected, setDaySelected ] = useState([]);
+
+    let onDaySelected = (evt)=>{
+        if(daySelected.includes(evt.target.value)){
+            let valuearray=[];
+            daySelected.forEach(element => {
+                if(element!=evt.target.value){
+                    valuearray.push(element);
+                }
+            });
+            setDaySelected(valuearray);
+        }else{
+            setDaySelected([
+                ...daySelected,
+                evt.target.value,
+            ])
+        }
+        
+    }
 
 
     return (
@@ -53,44 +75,30 @@ function NewCourse() {
                                     </div>
                                     <div className="card p-0">
                                         <div className="card-body">
-                                            <div className="container">
+                                            <div className="container" id="day-select">
                                                 <div className="row">
                                                     <div className="input-group d-flex w-100 justify-content-center">
-                                                        <label htmlFor="wdmon" className="btn btn-outline-primary">MON</label>
-                                                        <input type="checkbox" className="btn-check" id="wdmon" name="wdmon" value={"monday"} selected />
-                                                        <input type="checkbox" className="btn-check" id="wdtue" name="wdtue" value={"tuesday"} />
+                                                        <input type="checkbox" className="btn-check" id="wdmon" name="wdmon" value={"monday"} onChange={onDaySelected} />
+                                                        <label htmlFor="wdmon" className="btn btn-outline-primary border-radius-right">MON</label>
+                                                        
+                                                        <input type="checkbox" className="btn-check" id="wdtue" name="wdtue" value={"tuesday"} onChange={onDaySelected} />
                                                         <label htmlFor="wdtue" className="btn btn-outline-primary">TUE</label>
-                                                        <input type="checkbox" className="btn-check" id="wdwnd" name="wdwnd" value={"wendsday"} />
+                                                        <input type="checkbox" className="btn-check" id="wdwnd" name="wdwnd" value={"wendsday"} onChange={onDaySelected} />
                                                         <label htmlFor="wdwnd" className="btn btn-outline-primary">WEN</label>
-                                                        <input type="checkbox" className="btn-check" id="wdthr" name="wdthr" value={"thirsday"} />
+                                                        <input type="checkbox" className="btn-check" id="wdthr" name="wdthr" value={"thirsday"} onChange={onDaySelected} />
                                                         <label htmlFor="wdthr" className="btn btn-outline-primary">THI</label>
-                                                        <input type="checkbox" className="btn-check" id="wdfri" name="wdfri" value={"friday"} />
+                                                        <input type="checkbox" className="btn-check" id="wdfri" name="wdfri" value={"friday"} onChange={onDaySelected} />
                                                         <label htmlFor="wdfri" className="btn btn-outline-primary">FRI</label>
-                                                        <input type="checkbox" className="btn-check" id="wdsat" name="wdsat" value={"saturday"} />
+                                                        <input type="checkbox" className="btn-check" id="wdsat" name="wdsat" value={"saturday"} onChange={onDaySelected} />
                                                         <label htmlFor="wdsat" className="btn btn-outline-primary">SAT</label>
-                                                        <input type="checkbox" className="btn-check" id="wdsun" name="wdsun" value={"sunday"} />
+                                                        <input type="checkbox" className="btn-check" id="wdsun" name="wdsun" value={"sunday"}  onChange={onDaySelected}/>
                                                         <label htmlFor="wdsun" className="btn btn-outline-primary">SUN</label>
                                                     </div>
                                                 </div>
-                                                <div className="row">
-                                                    <div className="col-2">
-                                                        <h5> Monday</h5>
-                                                    </div>
-                                                    <div className="col-2">
-                                                        <label htmlFor="sttime" className="col-form-label">Start time</label>
-                                                    </div>
-                                                    <div className="col-3">
-                                                        <input type="time" id="sttime" name="sttime" className="form-control" />
-                                                    </div>
-
-                                                    <div className="col-2">
-                                                        <label htmlFor="endtime" className="col-form-label">End time</label>
-                                                    </div>
-                                                    <div className="col-3">
-                                                        <input type="time" id="endtime" name="endtime" className="form-control" />
-                                                    </div>
-
-                                                </div>
+                                                {daySelected.map(dayname =>
+                                                    <DayTimeSelector dayname={dayname}></DayTimeSelector>
+                                                )}
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -102,8 +110,9 @@ function NewCourse() {
                                     <div className="card p-1">
                                         <div className="card-body">
                                             <div className="input-group d-flex w-100 justify-content-center">
-                                                <label htmlFor="Onetime" className="btn btn-outline-primary">One Time</label>
                                                 <input type="radio" className="btn-check" id="Onetime" name="Onetime" value={"Onetime"} />
+                                                
+                                                <label htmlFor="Onetime" className="btn btn-outline-primary">One Time</label>
 
                                                 <input type="radio" className="btn-check" id="wkly" name="wkly" value={"wkly"} selected />
                                                 <label htmlFor="wkly" className="btn btn-outline-primary">Weekly</label>
