@@ -16,13 +16,14 @@ const handleLobbyClick = (lobbyId) => {
     navigate(`/lobby/${lobbyId}`);
 };
 
-const handleCreateLobby = () => {
-    // Navigate to lobby creation page or open modal
-    navigate('/create-lobby');
-};
-
 return (
-    <div style={{ padding: '40px' }}>
+    <div style={{ //here comes the main styling of the Lobbylist
+        border: '4px solid #00357b',
+        borderRadius: '12px',
+        backgroundColor: '#b8b8b8ff',
+        padding: '40px',
+        width: '600px', 
+        }}>
     <h2>Your Lobbies</h2>
     <ul style={{ listStyle: 'none', padding: 0 }}>
         {lobbies.map((lobby) => (
@@ -41,19 +42,7 @@ return (
         </li>
         ))}
     </ul>
-    <button
-        style={{
-        padding: '10px 20px',
-        borderRadius: '8px',
-        backgroundColor: '#00357b',
-        color: 'white',
-        border: 'none',
-        cursor: 'pointer',
-        }}
-        onClick={handleCreateLobby}
-    >
-        + Create Lobby
-    </button>
+    
     </div>
     );
 }
