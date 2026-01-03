@@ -1,8 +1,16 @@
-#root {
-  max-width: 1280px;
+html, body, #root {
+  max-width: s;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  --brand-color: #00357b;
+  --bg-color: #bbbbbb;
+  --radius: 8px;
+
+  /*from this line on, trying to fix that false alignment*/
+  width: 100%;       /* actually helped, crazy */
+  height: 100%;
+  display: block;
 }
 
 .logo {
@@ -31,6 +39,77 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+/*my first custom component*/
+.base-Slider {
+  writing-mode: bt-lr;       /* vertical orientation, bottom to top */
+  -webkit-appearance: slider-vertical; /* Chrome/Safari */
+  width: 8px;                /* slider thickness */
+  height: 200px;             /* slider length */
+  margin: 20px;
+}
+
+.container-box {
+  border: 4px solid var(--brand-color);
+  border-radius: 12px;
+  padding: 20px;
+  background-color: var(--bg-color);
+}
+
+.btn-universal {
+  background-color: var(--brand-color);
+  color: white;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-universal:hover {
+  opacity: 0.9;
+}
+
+.btn-universal:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* One container style for any grouped content */
+.container-box {
+  border: 4px solid var(--brand-color);
+  border-radius: 12px;
+  padding: 20px;
+  background-color: var(--bg-color);
+}
+/* this centers all of returns*/
+.page-center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* Centering horizontally */
+  justify-content: center;
+  min-height: 100vh;      /* Takes full screen height */
+  width: 100%;
+  text-align: center;
+
+  /*here im trying to fix it sticking to the left side of the screen*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Standardized input boxes */
+.input-field {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .card {
