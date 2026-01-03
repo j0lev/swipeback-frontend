@@ -12,7 +12,7 @@ function Dozentpage() {
             <div className="container">
                 <div className="row">
                     <div className="col-12 justify-content-center">
-                        <h3>Wilkommen Marcel Davice</h3>
+                        <h3>Welcome Marcel D'Avis</h3>
 
                     </div>
                 </div>

@@ -310,7 +310,7 @@ function NewCourse() {
 
                             </div>
                             <div className="row">
-                                <div className="col-3"><h4>after lecutre swipe questions</h4></div>
+                                <div className="col-3"><h4>After lecutre swipe questions</h4></div>
                                 <div className="col-9">
                                     <div className="card p-0">
                                         <div className="card-body">
