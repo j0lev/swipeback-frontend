@@ -1,3 +1,4 @@
+import Iconselector from "./Iconselector";
 
 
 function SettingFeedbackSlider(props) {
@@ -17,12 +18,8 @@ function SettingFeedbackSlider(props) {
                                 <label htmlFor={props.id+"symbol"} className="col-form-label">Logo</label>
                             </div>
                             <div className="col-2" >
-                                <select name={props.id+"symbol"} className="form-control" id={props.id+"symbol"}>
-                                    <option value={""}>Symbol</option>
-                                    <option value={"bulb"}>bulb</option>
-                                    <option value={"book"}>book</option>
-                                    <option value={"lins"}>linse</option>
-                                </select>
+                                <Iconselector id={props.id+"symbol"}></Iconselector>
+                               
                             </div>
                             <div className="col-1">
                                 <label htmlFor={props.id+"color"} className="col-form-label">Color</label>

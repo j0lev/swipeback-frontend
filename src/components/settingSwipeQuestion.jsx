@@ -1,3 +1,4 @@
+import Iconselector from "./Iconselector"
 
 
 function SettingSwipeQuestion(props) {
@@ -18,12 +19,8 @@ function SettingSwipeQuestion(props) {
                                     <label htmlFor={props.id+"qsymbol"} className="col-form-label">Logo</label>
                                 </div>
                                 <div className="col-2" >
-                                    <select name={props.id+"qsymbol"} className="form-control" id={props.id+"qsymbol"}>
-                                        <option value={""}>Symbol</option>
-                                        <option value={"bulb"}>bulb</option>
-                                        <option value={"book"}>book</option>
-                                        <option value={"lins"}>linse</option>
-                                    </select>
+                                    <Iconselector id={props.id+"qsymbol"}></Iconselector>
+                                    
                                 </div>
                             </div>
                         </div>

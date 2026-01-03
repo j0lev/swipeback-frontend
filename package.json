@@ -11,10 +11,13 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
     "react": "^19.2.0",
+    "react-bootstrap-icons": "^1.11.6",
     "react-dom": "^19.2.0",
     "react-qr-code": "^2.0.18",
-    "react-router-dom": "^7.11.0"
+    "react-router-dom": "^7.11.0",
+    "react-select": "^5.10.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
