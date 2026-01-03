@@ -1,31 +1,178 @@
 import DayTimeSelector from "../components/daytimeselector";
-import { useState } from "react"; 
+import { useState } from "react";
+import SettingFeedbackSlider from "../components/settingFeedbackslider";
+import SettingSwipeQuestion from "../components/settingSwipeQuestion";
+import QRCode from "react-qr-code";
 
 function NewCourse() {
-    let [daySelected, setDaySelected ] = useState([]);
+    let [daySelected, setDaySelected] = useState([]);
+    let [feedbackslider, setFeedbackslider] = useState([]);
+    let [swipequestion, setSwipequestion] = useState([]);
+    console.log(feedbackslider);
+    let frequence = [
+        {
+            value: "onetime",
+            label: "One Time"
+        },
+        {
+            value: "wkly",
+            label: "Weekly"
+        },
+        {
+            value: "bwklyodd",
+            label: "biweekly (ood weeks)"
+        },
+        {
+            value: "bwklyeven",
+            label: "biweekly (even Weeks)"
+        },
+        {
+            value: "monthly",
+            label: "Monthly"
+        },
+    ]
 
-    let onDaySelected = (evt)=>{
-        if(daySelected.includes(evt.target.value)){
-            let valuearray=[];
+    let weekdays = [
+        {
+            name: "Monday",
+            nameshort: "MON",
+            id: "wdmon",
+        },
+        {
+            name: "Tuesday",
+            nameshort: "TUE",
+            id: "wdtue",
+        },
+        {
+            name: "Wednesday",
+            nameshort: "WED",
+            id: "wdwed",
+        },
+        {
+            name: "Thirsday",
+            nameshort: "THR",
+            id: "wdthr",
+        },
+        {
+            name: "Friday",
+            nameshort: "FRI",
+            id: "wdfri",
+        },
+        {
+            name: "Saturday",
+            nameshort: "SAT",
+            id: "wdsat",
+        },
+        {
+            name: "Sunday",
+            nameshort: "SUN",
+            id: "wdsun",
+        },
+    ]
+
+    let onDaySelected = (evt) => {
+        let isInArray = false
+        daySelected.forEach(element => {
+            if (element.name == evt.target.value) {
+                isInArray = true;
+            }
+        })
+        if (isInArray) {
+            let valuearray = [];
             daySelected.forEach(element => {
-                if(element!=evt.target.value){
+                if (element.name != evt.target.value) {
                     valuearray.push(element);
                 }
             });
             setDaySelected(valuearray);
-        }else{
-            setDaySelected([
+        } else {
+            let number = 0;
+            let children = evt.target.parentNode.childNodes;
+            for (let i = 0; i < children.length; i++) {
+                if (children[i].value == evt.target.value) {
+                    number = i;
+                }
+            }
+
+            let array = [
                 ...daySelected,
-                evt.target.value,
-            ])
+                {
+                    name: evt.target.value,
+                    id: number,
+                },
+            ];
+
+            array.sort((a, b) => {
+                return a.id - b.id;
+            });
+
+            setDaySelected(array)
         }
-        
+
+    }
+
+    let onPlusClickedSlider = () => {
+        setFeedbackslider([
+            ...feedbackslider,
+            feedbackslider.length
+        ])
+    }
+
+    let onPlusClickedSwipe = () => {
+        setSwipequestion([
+            ...swipequestion,
+            swipequestion.length
+        ])
+    }
+
+    let onMinusclickedSlider = () => {
+        let array = [...feedbackslider];
+        array.pop();
+        setFeedbackslider(array)
+    }
+    let onMinusclickedSwipe = () => {
+        let array = [...swipequestion];
+        array.pop();
+        setSwipequestion(array)
     }
 
 
     return (
         <>
-            <h3>Add New Course</h3>
+
+            <div class="modal fade" id="qrmodal" tabindex="-1" aria-labelledby="qrmodalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="qrmodalLabel">QR Code</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <QRCode value="hier könnte ihre link stehen" />
+                            <p>hier könnte ihre link stehen</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="linkmodal" tabindex="-1" aria-labelledby="linkmodalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="linkmodalLabel">Link</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>hier könnte ihre link stehen</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="card">
 
                 <div className="card-body">
@@ -33,6 +180,22 @@ function NewCourse() {
                     <form action="/hiermus die anfrageseite stehen" method="post">
 
                         <div className="container">
+                            <div className="row">
+                                <div className="col-4"><h3>Add New Course</h3></div>
+                                <div className="col-2">
+                                    <button className="btn btn-secondary" type="submit">Save</button>
+                                </div>
+                                <div className="col-2">
+                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#qrmodal">
+                                        Generate QR-code
+                                    </button>
+
+                                </div>
+                                <div className="col-2"><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#linkmodal">
+                                        Generate link
+                                    </button>
+                                </div>
+                            </div>
                             <div className="row">
                                 <div className="col-3">
                                     <h4 >Cours Name</h4>
@@ -78,27 +241,18 @@ function NewCourse() {
                                             <div className="container" id="day-select">
                                                 <div className="row">
                                                     <div className="input-group d-flex w-100 justify-content-center">
-                                                        <input type="checkbox" className="btn-check" id="wdmon" name="wdmon" value={"monday"} onChange={onDaySelected} />
-                                                        <label htmlFor="wdmon" className="btn btn-outline-primary border-radius-right">MON</label>
-                                                        
-                                                        <input type="checkbox" className="btn-check" id="wdtue" name="wdtue" value={"tuesday"} onChange={onDaySelected} />
-                                                        <label htmlFor="wdtue" className="btn btn-outline-primary">TUE</label>
-                                                        <input type="checkbox" className="btn-check" id="wdwnd" name="wdwnd" value={"wendsday"} onChange={onDaySelected} />
-                                                        <label htmlFor="wdwnd" className="btn btn-outline-primary">WEN</label>
-                                                        <input type="checkbox" className="btn-check" id="wdthr" name="wdthr" value={"thirsday"} onChange={onDaySelected} />
-                                                        <label htmlFor="wdthr" className="btn btn-outline-primary">THI</label>
-                                                        <input type="checkbox" className="btn-check" id="wdfri" name="wdfri" value={"friday"} onChange={onDaySelected} />
-                                                        <label htmlFor="wdfri" className="btn btn-outline-primary">FRI</label>
-                                                        <input type="checkbox" className="btn-check" id="wdsat" name="wdsat" value={"saturday"} onChange={onDaySelected} />
-                                                        <label htmlFor="wdsat" className="btn btn-outline-primary">SAT</label>
-                                                        <input type="checkbox" className="btn-check" id="wdsun" name="wdsun" value={"sunday"}  onChange={onDaySelected}/>
-                                                        <label htmlFor="wdsun" className="btn btn-outline-primary">SUN</label>
+                                                        {weekdays.map(day => {
+                                                            return (<><input type="checkbox" className="btn-check" id={day.id} name={day.id} value={day.name} onChange={onDaySelected} />
+                                                                <label htmlFor={day.id} className="btn btn-outline-primary border-radius-right">{day.nameshort}</label></>)
+                                                        }
+                                                        )}
+
                                                     </div>
                                                 </div>
                                                 {daySelected.map(dayname =>
-                                                    <DayTimeSelector dayname={dayname}></DayTimeSelector>
+                                                    <DayTimeSelector dayname={dayname.name}></DayTimeSelector>
                                                 )}
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -110,20 +264,19 @@ function NewCourse() {
                                     <div className="card p-1">
                                         <div className="card-body">
                                             <div className="input-group d-flex w-100 justify-content-center">
-                                                <input type="radio" className="btn-check" id="Onetime" name="Onetime" value={"Onetime"} />
-                                                
-                                                <label htmlFor="Onetime" className="btn btn-outline-primary">One Time</label>
+                                                {
+                                                    frequence.map(freq => {
+                                                        return (<>
+                                                            <input type="radio" className="btn-check" id={freq.value} name="freq" value={freq.value} />
+                                                            <label htmlFor={freq.value} className="btn btn-outline-primary">{freq.label}</label>
+                                                        </>);
+                                                    }
 
-                                                <input type="radio" className="btn-check" id="wkly" name="wkly" value={"wkly"} selected />
-                                                <label htmlFor="wkly" className="btn btn-outline-primary">Weekly</label>
+                                                    )
+                                                }
 
-                                                <input type="radio" className="btn-check" id="bwklyodd" name="bwklyodd" value={"bwklyodd"} />
-                                                <label htmlFor="bwklyodd" className="btn btn-outline-primary">biweekly (ood weeks)</label>
-                                                <input type="radio" className="btn-check" id="bwklyeven" name="bwklyeven" value={"bwklyeven"} />
-                                                <label htmlFor="bwklyeven" className="btn btn-outline-primary">biweekly (even Weeks)</label>
-                                                <input type="radio" className="btn-check" id="mnthly" name="mnthly" value={"mnthly"} />
-                                                <label htmlFor="mnthly" className="btn btn-outline-primary">monthly</label>
-                                            </div></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -133,44 +286,23 @@ function NewCourse() {
                                     <div className="card p-0">
                                         <div className="card-body">
                                             <div className="container">
+                                                {feedbackslider.map(i => {
+                                                    return <SettingFeedbackSlider id={i} onclick={onMinusclickedSlider}></SettingFeedbackSlider>
+                                                })}
+
                                                 <div className="row">
-                                                    <div className="col-9">
-                                                        <div className="row">
-                                                            <div className="col-2">
-                                                                <label htmlFor="slidername" className="col-form-label">Slidername</label>
-                                                            </div>
-                                                            <div className="col-5">
-                                                                <input type="text" className="form-control" id="slidername" name="slidername" value={"slidername"} />
-                                                            </div>
-                                                            <div className="col-1">
-                                                                <label htmlFor="symbol" className="col-form-label">Logo</label>
-                                                            </div>
-                                                            <div className="col-2" >
-                                                                <select name="symbol" className="form-control" id="symbol">
-                                                                    <option value={""}>Symbol</option>
-                                                                    <option value={"bulb"}>bulb</option>
-                                                                    <option value={"book"}>book</option>
-                                                                    <option value={"lins"}>linse</option>
-                                                                </select>
-                                                            </div>
-                                                            <div className="col-1">
-                                                                <label htmlFor="color" className="col-form-label">Color</label>
-                                                            </div>
-                                                            <div className="col-1">
-                                                                <input type="color" className="form-control form-control-color" id="color" name="color" value={"color"} />
-                                                            </div>
+                                                    <div className="col-12 p-4 justify-content-cneter">
+                                                        <div>
+                                                            <button type="button" class="btn btn-outline-secondary rounded-circle fs-2" onClick={onPlusClickedSlider}>+</button>
                                                         </div>
-
                                                     </div>
-                                                    <div className="col-3">
-
-                                                    </div>
-
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
+
 
                             </div>
                             <div className="row">
@@ -179,43 +311,27 @@ function NewCourse() {
                                     <div className="card p-0">
                                         <div className="card-body">
                                             <div className="container">
+                                                {swipequestion.map(i => {
+                                                    return <SettingSwipeQuestion id={i} onclick={onMinusclickedSwipe}></SettingSwipeQuestion>
+                                                }
+                                                )}
                                                 <div className="row">
-                                                    <div className="col-9">
-                                                        <div className="row">
-                                                            <div className="col-3">
-                                                                <label htmlFor="slidername" className="col-form-label">Question Title</label>
-                                                            </div>
-                                                            <div className="col-6">
-                                                                <input type="text" className="form-control" id="slidername" name="slidername" value={"slidername"} />
-                                                            </div>
-                                                            <div className="col-1">
-                                                                <label htmlFor="symbol" className="col-form-label">Logo</label>
-                                                            </div>
-                                                            <div className="col-2" >
-                                                                <select name="symbol" className="form-control" id="symbol">
-                                                                    <option value={""}>Symbol</option>
-                                                                    <option value={"bulb"}>bulb</option>
-                                                                    <option value={"book"}>book</option>
-                                                                    <option value={"lins"}>linse</option>
-                                                                </select>
-                                                            </div>
+                                                    <div className="col-12 p-4 justify-content-cneter">
+                                                        <div>
+                                                            <button type="button" class="btn btn-outline-secondary rounded-circle fs-2" onClick={onPlusClickedSwipe} >+</button>
                                                         </div>
-
                                                     </div>
-                                                    <div className="col-3">
-
-                                                    </div>
-
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
+                    </form >
+                </div >
+            </div >
         </>
 
     );
