@@ -4,6 +4,7 @@ import Feedback from "./routes/feedbackpage"
 import SwipePage from './routes/SwipePage';
 import Dozentpage from "./routes/dozentpage";
 import NewCourse from "./routes/newCourses";
+import EditCourse from "./routes/editCourse";
 
 
 function App() {
