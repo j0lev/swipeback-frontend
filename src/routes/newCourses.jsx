@@ -202,7 +202,7 @@ function NewCourse() {
                             </div>
                             <div className="row">
                                 <div className="col-3">
-                                    <h4 >Cours Name</h4>
+                                    <h4 >Course name</h4>
                                 </div>
                                 <div className="col-9">
                                     <input type="text" id="cname" name="cname" className="form-control" placeholder="Enter Cours Name" />
