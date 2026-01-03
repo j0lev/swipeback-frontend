@@ -18,6 +18,11 @@ function Feedback() {
  
         }
     }
+    window.addEventListener("keydown", (evt)=>{
+      if(evt.key=="AltGraph"){
+        window.location.href= window.location.href + "/swipe";
+      }
+    })
 
     let askQuestion= ()=>{
       if(document.getElementById("question").value!=""){

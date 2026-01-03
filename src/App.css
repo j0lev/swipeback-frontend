@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+/*my first custom component*/
+.base-Slider {
+  writing-mode: bt-lr;       /* vertical orientation, bottom to top */
+  -webkit-appearance: slider-vertical; /* Chrome/Safari */
+  width: 8px;                /* slider thickness */
+  height: 200px;             /* slider length */
+  margin: 20px;
+}
