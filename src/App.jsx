@@ -14,6 +14,7 @@ function App() {
       <Route path="/swipe" element={<SwipePage />} />
       <Route path="/doz" element={<Dozentpage/>}/>
       <Route path="/doz/newCourse" element={<NewCourse/>}/>
+      <Route path="/doz/edit/:fbnr" element={<EditCourse/>}/>
       
     </Routes>)
 }

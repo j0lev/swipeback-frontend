@@ -3,13 +3,16 @@ import { useId } from "react";
 import { Alarm, Book, Lightbulb } from "react-bootstrap-icons";
 
 function Iconselector(props){
-
-    let buttonid = useId();
     let iconList = [
         <Lightbulb />,
         <Book/>,
         <Alarm/>
     ]
+    let defaulttext = "Logo";
+    if(props.selected !=null){
+        defaulttext = iconList [props.selected];
+    }
+    let buttonid = useId();
     let onClickDropdown = (evt) =>{
         let target = evt.target;
         console.log(target.tagName);
@@ -25,7 +28,7 @@ function Iconselector(props){
         <>
         <div class="btn-group">
   <button type="button" class="btn dropdown-toggle"  id={buttonid} data-bs-toggle="dropdown" aria-expanded="false">
-    Logo
+    {defaulttext}
   </button>
   <ul class="dropdown-menu">
     {iconList.map(icon => {

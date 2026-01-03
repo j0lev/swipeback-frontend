@@ -4,7 +4,10 @@ import SettingFeedbackSlider from "../components/settingFeedbackslider";
 import SettingSwipeQuestion from "../components/settingSwipeQuestion";
 import QRCode from "react-qr-code";
 
-function NewCourse() {
+function EditCourse() {
+
+    let data;//hier müssten die daten vom backend abgefragt werden
+
     let [daySelected, setDaySelected] = useState([]);
     let [feedbackslider, setFeedbackslider] = useState([]);
     let [swipequestion, setSwipequestion] = useState([]);
@@ -342,4 +345,4 @@ function NewCourse() {
 
 }
 
-export default NewCourse
+export default EditCourse
