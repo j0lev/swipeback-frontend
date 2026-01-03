@@ -29,8 +29,8 @@ function Feedback() {
   }, []);
 
   return (
-    <>
-      <h3>Live feedback: v1</h3>
+    <div className="page-center-container">
+      <h3>Live feedback: v2</h3>
       <h5>press "Enter" to test the swipes</h5>
       {/**container to hold all of our user interactions */}
       <div style={{display: 'flex', gap: '60px', justifyContent:'center', alignItems: 'flex-start', marginTop: '40px'}}>
@@ -46,7 +46,7 @@ function Feedback() {
           />
         </label>
         <button
-            style={{ padding: '5px 10px', borderRadius: '5px', border: 'none', backgroundColor: '#00357b', color: 'white', cursor: 'pointer' }}
+            className='btn-universal'
             onClick={() => console.log('Sent:', text)}
         >
         🗨️
@@ -69,7 +69,7 @@ function Feedback() {
           ))}
         </div>
     </div>
-  </>
+  </div>
   )
 }
 

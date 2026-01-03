@@ -16,14 +16,23 @@ function Landingpage() {
   };
 
   return (
-    <div>
-      <h1>Landing Page</h1>
-      <button onClick={goToFeedback}>Go to Feedback</button>
-      <button onClick={goProfPage}>Go to Prof view</button>
+    /* as im incredibly smart, ive decided to split centering and containers, so that both are reusable */
+    /* +: both are reusable, but -: i need to wrap everything in both */
+    /* follow for more questionable design choices */
+    <div className="page-center-container">
+      <div className="container-box" style={{ display: 'flex', gap: '10px',}}>
+        <h1>Landing Page</h1>
+        <button 
+          onClick={goToFeedback}
+          className='btn-universal'
+        >Go to Feedback</button>
+        <button 
+          onClick={goProfPage}
+          className='btn-universal'
+          >Go to Prof view</button>
+      </div>
     </div>
   );
 }
-
-
 
 export default Landingpage

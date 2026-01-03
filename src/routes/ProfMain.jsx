@@ -1,40 +1,31 @@
 //Profmain is the main page professor lands on
 import { useNavigate } from 'react-router-dom';
 import LobbyList from './LobbyList';
+import '../App.css';
 
 function ProfMain() {
     const navigate = useNavigate();
 
     return (
-        <div>
+        <div className="page-center-container">
             
             <LobbyList />
             <div style={{
-                
+                width: '680px', //this is as big as lobbylist container
+                display: 'flex',
+                justifyContent: 'flex-start', //this pushes us to the left of that container
+                marginTop: '10px'
             }}>
                 <button
-                    onClick={()=> navigate ('prof/create')}
-                    style={{
-                        marginTop: '10px',
-                        marginBottom: '20px',
-                        padding: '10px 20px',
-                        borderRadius: '8px',
-                        backgroundColor: '#00357b',
-                        color: 'white',
-                        border: 'none',
-                        cursor: 'pointer',
-                        width: '300px',
-                    }}
+                    onClick={()=> navigate ('/prof/create')}
+                    className='btn-universal'
                 >
                     + create lobby
-
                 </button>
             </div>
         </div>
     
-
-
     );
 }
 
-export default ProfMain;
+export default ProfMain;   

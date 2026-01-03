@@ -1,36 +1,64 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+html, body, #root { /*also trying to change that sticking to the left problem*/
+  --brand-color: #00357b;
+  --bg-color: #bbbbbb;
+  --radius: 8px;
+
+  /*from this line on, trying to fix that false alignment*/
+  margin: 0;
+  padding: 0;
+  width: 100%;       /* actually helped, crazy */
+  height: 100%;
+  display: block;
+
+}
+
+/* One button style for all */
+.btn-universal {
+  background-color: var(--brand-color);
+  color: white;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-universal:hover {
+  opacity: 0.9;
+}
+
+.btn-universal:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* One container style for any grouped content */
+.container-box {
+  border: 4px solid var(--brand-color);
+  border-radius: 12px;
+  padding: 20px;
+  background-color: var(--bg-color);
+}
+/* this centers all of returns*/
+.page-center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* Centering horizontally */
+  justify-content: center;
+  min-height: 100vh;      /* Takes full screen height */
+  width: 100%;
   text-align: center;
-}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  /*here im trying to fix it sticking to the left side of the screen*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Standardized input boxes */
+.input-field {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .card {
