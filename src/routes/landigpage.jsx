@@ -69,6 +69,13 @@ function Landingpage() {
           A simple danger alert—check it out!
         </div>
         <button
+          onClick={onClickLogin}
+          className='btn-universal'
+          style={{ width: '100%' }}
+        >
+          Log in as professor
+        </button>
+        <button
           onClick={goToFeedback}
           className='btn-universal'
           style={{ width: '100%', marginTop: '10px' }}
@@ -76,13 +83,7 @@ function Landingpage() {
           Enter Code
         </button>
 
-        <button
-          onClick={onClickLogin}
-          className='btn-universal'
-          style={{ width: '100%' }}
-        >
-          Log in as professor
-        </button>
+        
       </div>
     </div>
   );
