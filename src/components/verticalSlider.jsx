@@ -1,5 +1,5 @@
 import "../styles/fb_page_slider.css";
-import { Alarm, Book, Lightbulb, ThreeDots } from "react-bootstrap-icons";
+//import { Alarm, Book, Lightbulb, ThreeDots } from "react-bootstrap-icons";
 import { useId } from "react";
 
 function VerticalSlider(props) {
@@ -39,7 +39,8 @@ function VerticalSlider(props) {
                             <div id={bar} onClick={onClickSlide} className="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style={{ height: "50%" , background: props.color}}></div>
 
                             <div  className="icon-dot-box" onClick={onClickInformation}>
-                                <ThreeDots className="icon-dot"  color="black" size={20}></ThreeDots>
+                                <i class="bi bi-three-dots"></i>
+
                                 
                             </div>   
                             
