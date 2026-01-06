@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import VerticalSlider from "../components/VerticalSlider"
+import VerticalSlider from "../components/verticalSlider"
 import JsonData from "../../testfiles/test-feedback.json"
 import Headline from '../components/headline';
 import Questiontext from '../components/questiontext';
