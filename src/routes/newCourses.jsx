@@ -20,11 +20,11 @@ function NewCourse() {
         },
         {
             value: "bwklyodd",
-            label: "biweekly (ood weeks)"
+            label: "Biweekly (ood weeks)"
         },
         {
             value: "bwklyeven",
-            label: "biweekly (even Weeks)"
+            label: "Biweekly (even Weeks)"
         },
         {
             value: "monthly",

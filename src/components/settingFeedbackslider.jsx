@@ -1,4 +1,4 @@
-import Iconselector from "./Iconselector";
+import Iconselector from "./iconselector";
 
 
 function SettingFeedbackSlider(props) {

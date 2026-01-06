@@ -69,11 +69,11 @@ function Feedback() {
               <div className="card-body">
                 <div className='container h-100'>
                   <div className='row h-100'>
-                    <VerticalSlider iconnum={0} color="yellow" info="test"></VerticalSlider>
+                    <VerticalSlider iconnum={0} color="yellow" info="Understandability"></VerticalSlider>
                 
-                    <VerticalSlider iconnum={1} color="red" info="test2"></VerticalSlider>
+                    <VerticalSlider iconnum={1} color="red" info="Keep track"></VerticalSlider>
                 
-                    <VerticalSlider iconnum={2} color="green" info="test3"></VerticalSlider>
+                    <VerticalSlider iconnum={2} color="green" info="Lecture speed"></VerticalSlider>
                   </div>
                 </div>
               </div>

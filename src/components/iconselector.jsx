@@ -1,12 +1,12 @@
 
 import { useId } from "react";
-import { Alarm, Book, Lightbulb } from "react-bootstrap-icons";
+//import { Alarm, Book, Lightbulb } from "react-bootstrap-icons";
 
 function Iconselector(props){
     let iconList = [
-        <Lightbulb />,
-        <Book/>,
-        <Alarm/>
+        <i class="bi bi-lightbulb"></i>,
+        <i class="bi bi-book"></i>,
+        <i class="bi bi-alarm"></i>
     ]
     let defaulttext = "Logo";
     if(props.selected !=null){

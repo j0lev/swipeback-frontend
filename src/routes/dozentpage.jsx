@@ -2,7 +2,7 @@
 
 function Dozentpage() {
     let datatocourses = [{
-        name: "inalg",
+        name: "Linalg",
         nextdate: new Date(),
         id:124243
     }]
