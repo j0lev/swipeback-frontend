@@ -1,5 +1,6 @@
 
 import { useId } from "react";
+import "bootstrap-icons/font/bootstrap-icons.min.css";
 //import { Alarm, Book, Lightbulb } from "react-bootstrap-icons";
 
 function Iconselector(props){
