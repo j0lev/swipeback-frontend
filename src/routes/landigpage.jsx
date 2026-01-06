@@ -6,7 +6,7 @@ function Landingpage() {
     const navigate = useNavigate();
 
     const goToFeedback = () => {
-      navigate("/fb/123"); 
+      navigate("/fb"); 
     };
     const goProfPage = () => {
     navigate("/doz"); 
@@ -46,7 +46,7 @@ function Landingpage() {
           className='btn-universal'
           style={{ width: '100%', marginTop: '10px' }}
         >
-          Log in as user
+          Enter Code
         </button>
         
         <button 

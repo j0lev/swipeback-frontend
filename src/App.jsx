@@ -5,12 +5,14 @@ import SwipePage from './routes/SwipePage';
 import Dozentpage from "./routes/dozentpage";
 import NewCourse from "./routes/newCourses";
 import EditCourse from "./routes/editCourse";
+import FeedbackCode from "./routes/feedbackcode";
 
 
 function App() {
 
   return (<Routes>
       <Route path="/" element={<Landingpage/>}/>
+      <Route path="/fb" element={<FeedbackCode />}/>
       <Route path="/fb/:fbnr" element={<Feedback />}/>
       <Route path="/doz" element={<Dozentpage/>}/>
       <Route path="/doz/newCourse" element={<NewCourse/>}/>
