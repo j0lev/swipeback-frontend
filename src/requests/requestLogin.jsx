@@ -1,6 +1,6 @@
 
 
-function RequestLogin(username, passwd) {
+function RequestLogin(username, passwd, onGetResult) {
     let data = new URLSearchParams();
     var http = new XMLHttpRequest();
     data.append('username', username);
@@ -16,6 +16,9 @@ function RequestLogin(username, passwd) {
     http.onload = function () {
         // do something to response
         console.log(this.responseText);
+        let result = JSON.parse(this.responseText);
+        onGetResult(result);
+        
     };
     console.log(data.toString());
     http.send(data.toString());

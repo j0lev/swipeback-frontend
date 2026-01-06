@@ -11,9 +11,28 @@ function Landingpage() {
   };
   const goProfPage = () => {
 
-    RequestLogin(document.getElementById("username").value, document.getElementById("pwd").value);
+
     navigate("/doz");
   };
+
+  let onComputeResluts = (result) => {
+
+    if ("access_token" in result) {
+      goProfPage();
+    } else {
+      if("detail" in result){
+        document.getElementById("errMessage").innerText=result.detail;
+        document.getElementById("errMessage").style.display ="block";
+      }
+    }
+  }
+
+  let onClickLogin = () => {
+    RequestLogin(document.getElementById("username").value, document.getElementById("pwd").value,onComputeResluts);
+  }
+
+
+
 
   return (
     /* as im incredibly smart, ive decided to split centering and containers, so that both are reusable */
@@ -46,6 +65,9 @@ function Landingpage() {
           style={{ width: '100%', boxSizing: 'border-box' }}
         />
         {/* Login Buttons */}
+        <div id='errMessage' class="alert alert-danger" style={{display: "none"}} role="alert">
+          A simple danger alert—check it out!
+        </div>
         <button
           onClick={goToFeedback}
           className='btn-universal'
@@ -55,7 +77,7 @@ function Landingpage() {
         </button>
 
         <button
-          onClick={goProfPage}
+          onClick={onClickLogin}
           className='btn-universal'
           style={{ width: '100%' }}
         >
