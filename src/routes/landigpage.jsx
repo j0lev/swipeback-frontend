@@ -9,6 +9,9 @@ function Landingpage() {
   const goToFeedback = () => {
     navigate("/fb");
   };
+  const goToRegister = () => {
+    navigate("/register");
+  };
   const goProfPage = () => {
 
 
@@ -74,6 +77,13 @@ function Landingpage() {
           style={{ width: '100%' }}
         >
           Log in as professor
+        </button>
+        <button
+          onClick={goToRegister}
+          className='btn-universal'
+          style={{ width: '100%', marginTop: '10px' }}
+        >
+          Create account
         </button>
         <button
           onClick={goToFeedback}

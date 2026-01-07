@@ -6,18 +6,20 @@ import Dozentpage from "./routes/dozentpage";
 import NewCourse from "./routes/newCourses";
 import EditCourse from "./routes/editCourse";
 import FeedbackCode from "./routes/feedbackcode";
+import RegisterPage from "./routes/registerpage";
 
 
 function App() {
 
   return (<Routes>
       <Route path="/" element={<Landingpage/>}/>
+      <Route path="/register" element={<RegisterPage/>}/>
       <Route path="/fb" element={<FeedbackCode />}/>
       <Route path="/fb/:fbnr" element={<Feedback />}/>
+      <Route path="/fb/:fbnr/swipe" element={<SwipePage />} />
       <Route path="/doz" element={<Dozentpage/>}/>
       <Route path="/doz/newCourse" element={<NewCourse/>}/>
       <Route path="/doz/edit/:fbnr" element={<EditCourse/>}/>
-      <Route path="/fb/:fbnr/swipe" element={<SwipePage />} />
     </Routes>)
 }
 
