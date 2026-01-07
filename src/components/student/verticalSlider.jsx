@@ -1,4 +1,4 @@
-import "../styles/fb_page_slider.css";
+import "../../styles/fb_page_slider.css";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
 //import { Alarm, Book, Lightbulb, ThreeDots } from "react-bootstrap-icons";
 import { useId } from "react";

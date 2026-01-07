@@ -1,8 +1,8 @@
 
 //my own imports
 import { useNavigate } from "react-router-dom";
-import RequestRegister from "../requests/requestRegister";
-import RequestLogin from "../requests/requestLogin";
+import RequestRegister from "../../requests/requestRegister";
+import RequestLogin from "../../requests/requestLogin";
 
 
 function RegisterPage() {

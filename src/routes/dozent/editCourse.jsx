@@ -1,10 +1,13 @@
-import DayTimeSelector from "../components/daytimeselector";
+import DayTimeSelector from "../../components/dozent/daytimeselector";
 import { useState } from "react";
-import SettingFeedbackSlider from "../components/settingFeedbackslider";
-import SettingSwipeQuestion from "../components/settingSwipeQuestion";
+import SettingFeedbackSlider from "../../components/dozent/settingFeedbackslider";
+import SettingSwipeQuestion from "../../components/dozent/settingSwipeQuestion";
 import QRCode from "react-qr-code";
 
-function NewCourse() {
+function EditCourse() {
+
+    let data;//hier müssten die daten vom backend abgefragt werden
+
     let [daySelected, setDaySelected] = useState([]);
     let [feedbackslider, setFeedbackslider] = useState([]);
     let [swipequestion, setSwipequestion] = useState([]);
@@ -202,7 +205,7 @@ function NewCourse() {
                             </div>
                             <div className="row">
                                 <div className="col-3">
-                                    <h4 >Course name</h4>
+                                    <h4 >Cours Name</h4>
                                 </div>
                                 <div className="col-9">
                                     <input type="text" id="cname" name="cname" className="form-control" placeholder="Enter Cours Name" />
@@ -310,7 +313,7 @@ function NewCourse() {
 
                             </div>
                             <div className="row">
-                                <div className="col-3"><h4>After lecutre swipe questions</h4></div>
+                                <div className="col-3"><h4>after lecutre swipe questions</h4></div>
                                 <div className="col-9">
                                     <div className="card p-0">
                                         <div className="card-body">
@@ -342,4 +345,4 @@ function NewCourse() {
 
 }
 
-export default NewCourse
+export default EditCourse

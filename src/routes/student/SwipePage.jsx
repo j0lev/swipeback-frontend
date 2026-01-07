@@ -5,8 +5,8 @@ As only in times of writing did i at least somewhat understood, what i was doing
 */
 
 import { useState, useEffect } from 'react';
-import QuestionCard from './QuestionCard';
-import { useLobbyController } from './useLobbyController';
+import QuestionCard from '../../components/student/QuestionCard';
+import { useLobbyController } from '../../controller/useLobbyController';
 
 function SwipePage() {
   const {

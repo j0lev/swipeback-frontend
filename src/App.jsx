@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom"
 import Landingpage from "./routes/landigpage"
-import Feedback from "./routes/feedbackpage"
-import SwipePage from './routes/SwipePage';
-import Dozentpage from "./routes/dozentpage";
-import NewCourse from "./routes/newCourses";
-import EditCourse from "./routes/editCourse";
-import FeedbackCode from "./routes/feedbackcode";
-import RegisterPage from "./routes/registerpage";
+import Feedback from "./routes/student/feedbackpage"
+import SwipePage from './routes/student/SwipePage';
+import Dozentpage from "./routes/dozent/dozentpage";
+import NewCourse from "./routes/dozent/newCourses";
+import EditCourse from "./routes/dozent/editCourse";
+import FeedbackCode from "./routes/student/feedbackcode";
+import RegisterPage from "./routes/dozent/registerpage";
 
 
 function App() {
