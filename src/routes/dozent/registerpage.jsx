@@ -129,7 +129,7 @@ function RegisterPage() {
                     className='btn-universal'
                     style={{ width: '100%', marginTop: '10px' }}
                 >
-                    Login instaad
+                    Login instead
                 </button>
 
 

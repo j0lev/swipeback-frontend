@@ -24,7 +24,7 @@ function NewCourse() {
         },
         {
             value: "bwklyeven",
-            label: "Biweekly (even Weeks)"
+            label: "Biweekly (even weeks)"
         },
         {
             value: "monthly",
@@ -50,7 +50,7 @@ function NewCourse() {
         },
         {
             name: "Thirsday",
-            nameshort: "THR",
+            nameshort: "THU",
             id: "wdthr",
         },
         {
