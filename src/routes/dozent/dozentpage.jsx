@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 
 
 function Dozentpage() {
@@ -6,6 +7,13 @@ function Dozentpage() {
         nextdate: new Date(),
         id:124243
     }]
+
+    let navigate = useNavigate();
+
+    let onClickLogout =()=>{
+        //hier muss die session beendet werden
+        navigate("/");
+    }
 
     return (
         <>
@@ -22,6 +30,9 @@ function Dozentpage() {
                     </div>
                     <div className="col-9 d-flex justify-content-start">
                         <a className="btn btn-secondary" href="doz/newCourse">add new Course</a>
+                    </div>
+                    <div className="col-2">
+                        <a className="btn btn-secondary" onClick={onClickLogout}>Logout</a>
                     </div>
 
                 </div>

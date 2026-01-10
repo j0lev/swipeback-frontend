@@ -3,12 +3,14 @@ import { useState } from "react";
 import SettingFeedbackSlider from "../../components/dozent/settingFeedbackslider";
 import SettingSwipeQuestion from "../../components/dozent/settingSwipeQuestion";
 import QRCode from "react-qr-code";
+import { useNavigate } from "react-router-dom";
 
 function NewCourse() {
     let [daySelected, setDaySelected] = useState([]);
     let [feedbackslider, setFeedbackslider] = useState([]);
     let [swipequestion, setSwipequestion] = useState([]);
     console.log(feedbackslider);
+    const navigate = useNavigate();
     let frequence = [
         {
             value: "onetime",
@@ -141,6 +143,12 @@ function NewCourse() {
         // hier muss definiert werrden wie die daten ans backend gegeben werden sollen (maybe weiterleitung zu der dazugehörenden edit page)
     }
 
+    let onClickMainmenu = ()=>{
+        document.querySelector("body>div.modal-backdrop").remove();
+        navigate("/doz")
+
+    }
+
     return (
         <>
 
@@ -177,6 +185,23 @@ function NewCourse() {
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="backmainmanu" tabindex="-1" aria-labelledby="backmainmanuLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="backmainmanuLabel">Link</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>All unsaved chainges will be removed. If you want to proceed click "Back to main manu".</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" onClick={onClickMainmenu}>Back to main manu</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="card">
 
                 <div className="card-body">
@@ -197,6 +222,10 @@ function NewCourse() {
                                 </div>
                                 <div className="col-2"><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#linkmodal">
                                         Generate link
+                                    </button>
+                                </div>
+                                <div className="col-2"><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#backmainmanu">
+                                        Cancel
                                     </button>
                                 </div>
                             </div>

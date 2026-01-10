@@ -31,7 +31,7 @@ function Iconselector(props) {
                 <button type="button" class="btn border dropdown-toggle" id={buttonid} data-bs-toggle="dropdown" aria-expanded="false">
                     {defaulttext}
                 </button>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" style={{"--bs-dropdown-min-width": "50px"}}>
                     {iconList.map(icon => {
                         return (<li><a class="dropdown-item" onClick={onClickDropdown}>{icon}</a></li>)
                     })}
