@@ -7,10 +7,11 @@ import NewCourse from "./routes/dozent/newCourses";
 import EditCourse from "./routes/dozent/editCourse";
 import FeedbackCode from "./routes/student/feedbackcode";
 import RegisterPage from "./routes/dozent/registerpage";
+import RequestLogin from "./requests/requestLogin";
 
 
 function App() {
-
+  RequestLogin("test", "test",()=>{console.log("its working")});
   return (<Routes>
       <Route path="/" element={<Landingpage/>}/>
       <Route path="/register" element={<RegisterPage/>}/>
