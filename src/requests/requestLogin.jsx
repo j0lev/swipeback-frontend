@@ -17,19 +17,13 @@ function RequestLogin(username, passwd, onGetResult) {
         // do something to response
         console.log(this.responseText);
         let result = JSON.parse(this.responseText);
-        onGetResult({
-            "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNzY4MjM5NDYzfQ.YiKkYf_td8NCkxq_gq6dOuLDwtgk8aMZ5bS5A5pMSjg",
-            "token_type": "bearer"
-        })
+        onGetResult(result)
         //onGetResult(result);
 
     };
-    onGetResult({
-            "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNzY4MjM5NDYzfQ.YiKkYf_td8NCkxq_gq6dOuLDwtgk8aMZ5bS5A5pMSjg",
-            "token_type": "bearer"
-        })
+    
     console.log(data.toString());
-    //http.send(data.toString());
+    http.send(data.toString());
 
 
 
