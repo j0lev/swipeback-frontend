@@ -1,7 +1,15 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthenticationContext } from "../../context/authenticationContext";
 
 
 function Dozentpage() {
+    let {user, setUser} = useContext(AuthenticationContext);
+    if(user.access_token == null){
+        console.log("nix da");
+    }else{
+         console.log(user.access_token);
+    }
     let datatocourses = [{
         name: "Linalg",
         nextdate: new Date(),
@@ -11,6 +19,7 @@ function Dozentpage() {
     let navigate = useNavigate();
 
     let onClickLogout =()=>{
+        setUser({});
         //hier muss die session beendet werden
         navigate("/");
     }

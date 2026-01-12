@@ -2,9 +2,13 @@ import '../App.css'
 //my own imports
 import { useNavigate } from "react-router-dom";
 import RequestLogin from '../requests/requestLogin';
+import { useContext } from 'react';
+import { AuthenticationContext } from '../context/authenticationContext';
 
 function Landingpage() {
   const navigate = useNavigate();
+
+  let {setUser} = useContext(AuthenticationContext)
 
   const goToFeedback = () => {
     navigate("/fb");
@@ -21,6 +25,11 @@ function Landingpage() {
   let onComputeResluts = (result) => {
 
     if ("access_token" in result) {
+      setUser({
+        access_token: result.access_token,
+        token_type: result.token_type
+      })
+      
       goProfPage();
     } else {
       if("detail" in result){
