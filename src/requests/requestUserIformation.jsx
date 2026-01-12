@@ -11,3 +11,5 @@ function RequestUserInformation(user,setUser){
 
     http.send();
 }
+
+export default RequestUserInformation

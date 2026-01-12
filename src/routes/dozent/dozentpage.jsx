@@ -1,14 +1,18 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthenticationContext } from "../../context/authenticationContext";
+import RequestUserInformation from "../../requests/requestUserIformation";
 
 
 function Dozentpage() {
     let {user, setUser} = useContext(AuthenticationContext);
+    let navigate = useNavigate();
     if(user.access_token == null){
-        console.log("nix da");
+        navigate("/");
     }else{
-         console.log(user.access_token);
+        if(user.name==null){
+            RequestUserInformation(user, setUser);
+        }
     }
     let datatocourses = [{
         name: "Linalg",
@@ -16,7 +20,7 @@ function Dozentpage() {
         id:124243
     }]
 
-    let navigate = useNavigate();
+    
 
     let onClickLogout =()=>{
         setUser({});
