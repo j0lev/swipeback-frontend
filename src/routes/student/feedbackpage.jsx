@@ -5,10 +5,12 @@ import JsonData from "../../../testfiles/test-feedback.json"
 import Headline from '../../components/headline';
 import Questiontext from '../../components/student/questiontext';
 import "../../styles/fb-page.css";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 function Feedback() {
-
+    let  { fbnr } = useParams();
+    let navigat = useNavigate();
     let scheight = screen.height*0.60;
     scheight= scheight+"px";
     const [questions, setQuestions] = useState([]);
@@ -20,7 +22,7 @@ function Feedback() {
     }
     window.addEventListener("keydown", (evt)=>{
       if(evt.key=="AltGraph"){
-        window.location.href= window.location.href + "/swipe";
+        navigat("/fb/"+fbnr+"/swipe")
       }
     })
 

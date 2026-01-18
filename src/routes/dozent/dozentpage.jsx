@@ -27,6 +27,9 @@ function Dozentpage() {
     
 
 
+    let onClickCreateNewModule = ()=>{
+        navigate("/doz/newCourse");
+    }
 
 
     let onClickLogout = () => {
@@ -50,7 +53,7 @@ function Dozentpage() {
                             logoplatz
                         </div>
                         <div className="col-9 d-flex justify-content-start">
-                            <a className="btn btn-secondary" href="doz/newCourse">add new Course</a>
+                            <a className="btn btn-secondary" onClick={onClickCreateNewModule}>add new Course</a>
                         </div>
                         <div className="col-2">
                             <a className="btn btn-secondary" onClick={onClickLogout}>Logout</a>
@@ -91,7 +94,7 @@ function Dozentpage() {
                                                                 <button className="btn btn-secondary">View Dashboard</button>
                                                             </div>
                                                             <div className="col-3 d-flex justify-content-start">
-                                                                <a className="btn btn-secondary" href={"doz/editCourse/" + data.id}>edit</a>
+                                                                <a className="btn btn-secondary" onClick={()=>{navigate("/doz/editCourse/"+data.id)}}>edit</a>
                                                             </div>
                                                         </div>
                                                     </div>
