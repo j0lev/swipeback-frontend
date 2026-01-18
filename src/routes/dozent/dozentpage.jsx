@@ -13,8 +13,10 @@ function Dozentpage() {
         navigate("/");
         setUser({ ...user });
     } else {
-        if (user.name == null) {
+        if (user.username == null) {
             RequestUserInformation(user, setUser);
+        }
+        if(modules.notLoaded){
             RequestModuleList(setModules, user);
         }
     }
