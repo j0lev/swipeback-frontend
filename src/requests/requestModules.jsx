@@ -10,7 +10,7 @@ function RequestModuleList(setData, user) {
   join_code: "string",
   is_active: true
 }
-    const link = "https://swipeback-backend.onrender.com/modules/?"+encodeURI(JSON.stringify(data));
+    const link = "https://swipeback-backend.onrender.com/modules/?data="+encodeURI(JSON.stringify(data));
 
     http.open('GET', link, true);
     http.setRequestHeader('Content-type', 'application/json');
