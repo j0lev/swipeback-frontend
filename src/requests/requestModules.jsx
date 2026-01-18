@@ -17,8 +17,12 @@ function RequestModuleList(setData, user) {
         }
     };
     let data = {
-  session: 0,
-  user: user.username
+  id: 0,
+  module_id: 0,
+  start_time: "2026-01-18T20:16:13.306Z",
+  end_time: "2026-01-18T20:16:13.306Z",
+  join_code: "string",
+  is_active: true
 }
     console.log(data);
     http.send(JSON.stringify(data));
