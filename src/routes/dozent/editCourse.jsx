@@ -171,6 +171,7 @@ function NewCourse() {
     }
     let onClickDeleteCourse = ()=>{
         let success = ()=>{
+            document.querySelector("body>div.modal-backdrop").remove();
             navigate("/doz");
         }
         RequestDeleteModule(fbnr,user,success)
