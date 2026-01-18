@@ -17,9 +17,9 @@ function RequestModuleList(setData, user) {
         }
     };
 
-        http.send();
-    }
+    http.send(JSON.stringify({}));
+}
 
-export{
+export {
     RequestModuleList
 }
