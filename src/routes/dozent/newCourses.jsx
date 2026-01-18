@@ -1,16 +1,19 @@
 import DayTimeSelector from "../../components/dozent/daytimeselector";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import SettingFeedbackSlider from "../../components/dozent/settingFeedbackslider";
 import SettingSwipeQuestion from "../../components/dozent/settingSwipeQuestion";
 import QRCode from "react-qr-code";
 import { useNavigate } from "react-router-dom";
+import { AuthenticationContext } from "../../context/authenticationContext";
 
 function NewCourse() {
+    let { user, setUser } = useContext(AuthenticationContext);
     let [daySelected, setDaySelected] = useState([]);
     let [feedbackslider, setFeedbackslider] = useState([]);
     let [swipequestion, setSwipequestion] = useState([]);
     console.log(feedbackslider);
     const navigate = useNavigate();
+    console.log(user)
     let frequence = [
         {
             value: "onetime",
