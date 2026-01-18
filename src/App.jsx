@@ -14,12 +14,9 @@ import { useState } from "react";
 
 function App() {
 
-  let [ user, setUser ] = useState({});
-
   RequestLogin("test", "test", () => { console.log("its working") });
   return (
     <>
-      <AuthenticationContext.Provider value={{user, setUser}}>
         <Routes>
           <Route path="/" element={<Landingpage />} />
           <Route path="/register" element={<RegisterPage />} />
@@ -30,7 +27,7 @@ function App() {
           <Route path="/doz/newCourse" element={<NewCourse />} />
           <Route path="/doz/edit/:fbnr" element={<EditCourse />} />
         </Routes>
-      </AuthenticationContext.Provider>
+
     </>)
 }
 
