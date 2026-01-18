@@ -16,11 +16,12 @@ function RequestModuleList(setData, user) {
             })
         }
     };
-
-    http.send(JSON.stringify({
+    let data = {
   session: 0,
   user: user.username
-}));
+}
+    console.log(data);
+    http.send(JSON.stringify(data));
 }
 
 export {
