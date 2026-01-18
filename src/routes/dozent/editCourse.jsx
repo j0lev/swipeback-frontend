@@ -23,6 +23,12 @@ function NewCourse() {
         }
         RequestModule(user,fbnr,onDataLoad)
     }, [])
+
+    let onChaingTitle = (evt)=>{
+        let newData = {...data};
+        newData.title=evt.currentTarget.value;
+        setData(newData);
+    }
     
 
 
@@ -255,7 +261,7 @@ function NewCourse() {
                                     <h4 >Course name</h4>
                                 </div>
                                 <div className="col-9">
-                                    <input type="text" id="cname" name="cname" className="form-control" placeholder="Enter Cours Name" value={data.title} />
+                                    <input type="text" id="cname" name="cname" className="form-control" placeholder="Enter Cours Name" onChange={onChaingTitle} value={data.title} />
                                 </div>
                             </div>
                             <div className="row">
