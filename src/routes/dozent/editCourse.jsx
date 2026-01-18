@@ -155,11 +155,11 @@ function NewCourse() {
 
     let onUpdateCours = (evt) => {
         evt.preventDefault();
-        if (document.getElementById("cname") != "") {
+        if (document.getElementById("cname").value != ""||document.getElementById("cname").value==data.title) {
             let onHandleData = (result) => {
                 setData(...result);
             }
-            RequestUpdateModule(document.getElementById("cname"),fbnr, user, onHandleData)
+            RequestUpdateModule(document.getElementById("cname").value,fbnr, user, onHandleData)
         }
         // hier muss definiert werrden wie die daten ans backend gegeben werden sollen (maybe weiterleitung zu der dazugehörenden edit page)
     }

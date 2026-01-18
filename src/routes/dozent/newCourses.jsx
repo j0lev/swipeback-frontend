@@ -147,11 +147,11 @@ function NewCourse() {
 
     let onSubmitNewCours = (evt) => {
         evt.preventDefault();
-        if (document.getElementById("cname") != "") {
+        if (document.getElementById("cname").value != "") {
             let onHandleData = (result) => {
                 navigate("/doz/editCourse/" + result.id);
             }
-            RequestCreateModule(document.getElementById("cname"), document.getElementById("cname"), user, onHandleData)
+            RequestCreateModule(document.getElementById("cname").value, document.getElementById("cname").value, user, onHandleData)
         }
         // hier muss definiert werrden wie die daten ans backend gegeben werden sollen (maybe weiterleitung zu der dazugehörenden edit page)
     }
