@@ -5,7 +5,7 @@ import SettingSwipeQuestion from "../../components/dozent/settingSwipeQuestion";
 import QRCode from "react-qr-code";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthenticationContext } from "../../context/authenticationContext";
-import { RequestCreateModule, RequestModule, RequestUpdateModule } from "../../requests/requestModules";
+import { RequestCreateModule, RequestDeleteModule, RequestModule, RequestUpdateModule } from "../../requests/requestModules";
 
 function NewCourse() {
     let {fbnr} = useParams();
@@ -169,6 +169,12 @@ function NewCourse() {
         }
         // hier muss definiert werrden wie die daten ans backend gegeben werden sollen (maybe weiterleitung zu der dazugehörenden edit page)
     }
+    let onClickDeleteCourse = ()=>{
+        let success = ()=>{
+            navigate("/doz");
+        }
+        RequestDeleteModule(fbnr,user,success)
+    }
 
     let onClickMainmenu = () => {
         document.querySelector("body>div.modal-backdrop").remove();
@@ -196,17 +202,19 @@ function NewCourse() {
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="linkmodal" tabindex="-1" aria-labelledby="linkmodalLabel" aria-hidden="true">
+            <div class="modal fade" id="deletemodal" tabindex="-1" aria-labelledby="deletemodalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="linkmodalLabel">Link</h5>
+                            <h5 class="modal-title" id="deletemodalLabel">Link</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <p>hier könnte ihre link stehen</p>
+                            <p>Are You sure you want to delete this course</p>
                         </div>
                         <div class="modal-footer">
+                            
+                            <button type="button" class="btn btn-secondary" onClick={onClickDeleteCourse}>Delete Course</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
@@ -247,8 +255,8 @@ function NewCourse() {
                                     </button>
 
                                 </div>
-                                <div className="col-2"><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#linkmodal">
-                                    Generate link
+                                <div className="col-2"><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#deletemodal">
+                                    Delete
                                 </button>
                                 </div>
                                 <div className="col-2"><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#backmainmanu">
