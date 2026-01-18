@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthenticationContext } from "../../context/authenticationContext";
 import RequestUserInformation from "../../requests/requestUserIformation";
@@ -9,9 +9,11 @@ function Dozentpage() {
     let { user, setUser } = useContext(AuthenticationContext);
     let navigate = useNavigate();
     let [ modules, setModules ] = useState({ notLoaded: true });
+    console.log(user)
+    useEffect(()=>{
     if (user.access_token == null) {
         navigate("/");
-        setUser({ ...user });
+       
     } else {
         if (user.username == null) {
             RequestUserInformation(user, setUser);
@@ -20,6 +22,9 @@ function Dozentpage() {
             RequestModuleList(setModules, user);
         }
     }
+
+    },[user])
+    
 
 
 
