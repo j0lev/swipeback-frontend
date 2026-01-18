@@ -18,12 +18,12 @@ function RequestModuleList(setData, user) {
     };
 
     http.send(JSON.stringify({
-  "id": 0,
-  "module_id": 0,
-  "start_time": "2026-01-18T16:32:19.475Z",
-  "end_time": "2026-01-18T16:32:19.475Z",
-  "join_code": "string",
-  "is_active": true
+  id: 0,
+  module_id: 0,
+  start_time: "2026-01-18T16:32:19.475Z",
+  end_time: "2026-01-18T16:32:19.475Z",
+  join_code: "string",
+  is_active: true
 }));
 }
 
