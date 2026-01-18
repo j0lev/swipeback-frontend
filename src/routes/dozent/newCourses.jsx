@@ -149,7 +149,7 @@ function NewCourse() {
         evt.preventDefault();
         if (document.getElementById("cname").value != "") {
             let onHandleData = (result) => {
-                navigate("/doz/editCourse/" + result.id);
+                navigate("/doz/edit/" + result.id);
             }
             RequestCreateModule(document.getElementById("cname").value, document.getElementById("cname").value, user, onHandleData)
         }

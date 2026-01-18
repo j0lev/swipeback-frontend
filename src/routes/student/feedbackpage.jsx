@@ -60,7 +60,7 @@ function Feedback() {
                 </div>
                 <div class="input-group mt-1">
                   <input onKeyDown={onKeyPressQuestion} id='question' type="text" className="form-control" placeholder="Question" aria-label="Question" aria-describedby="button-addon2"/>
-                  <button className="btn btn-outline-secondary" onClick={askQuestion} type="button" id="button-addon2">Button</button>
+                  <button className="btn btn-outline-secondary" onClick={askQuestion} type="button" id="button-addon2">Send</button>
                 </div>
               
               </div>

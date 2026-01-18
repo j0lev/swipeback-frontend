@@ -8,8 +8,7 @@ import EditCourse from "./routes/dozent/editCourse";
 import FeedbackCode from "./routes/student/feedbackcode";
 import RegisterPage from "./routes/dozent/registerpage";
 import RequestLogin from "./requests/requestLogin";
-import { AuthenticationContext } from "./context/authenticationContext";
-import { useState } from "react";
+
 
 
 function App() {

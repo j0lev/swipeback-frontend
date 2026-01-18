@@ -85,7 +85,7 @@ function Dozentpage() {
                                                                     Course: {data.title}
                                                                 </div>
                                                                 <div className="col-4 d-flex justify-content-end">
-                                                                    Created At: {data.created_at.toLocaleDateString()} {data.created_at.toLocaleTimeString()}
+                                                                    Created At: {data.created_at}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -94,7 +94,7 @@ function Dozentpage() {
                                                                 <button className="btn btn-secondary">View Dashboard</button>
                                                             </div>
                                                             <div className="col-3 d-flex justify-content-start">
-                                                                <a className="btn btn-secondary" onClick={()=>{navigate("/doz/editCourse/"+data.id)}}>edit</a>
+                                                                <a className="btn btn-secondary" onClick={()=>{navigate("/doz/edit/"+data.id)}}>edit</a>
                                                             </div>
                                                         </div>
                                                     </div>
