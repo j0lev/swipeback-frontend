@@ -5,15 +5,19 @@ import SettingSwipeQuestion from "../../components/dozent/settingSwipeQuestion";
 import QRCode from "react-qr-code";
 import { useNavigate } from "react-router-dom";
 import { AuthenticationContext } from "../../context/authenticationContext";
+import { RequestCreateModule } from "../../requests/requestModules";
 
 function NewCourse() {
-    let { user, setUser } = useContext(AuthenticationContext);
+    let { user } = useContext(AuthenticationContext);
     let [daySelected, setDaySelected] = useState([]);
     let [feedbackslider, setFeedbackslider] = useState([]);
     let [swipequestion, setSwipequestion] = useState([]);
     console.log(feedbackslider);
     const navigate = useNavigate();
     console.log(user)
+
+
+
     let frequence = [
         {
             value: "onetime",
@@ -143,10 +147,16 @@ function NewCourse() {
 
     let onSubmitNewCours = (evt) => {
         evt.preventDefault();
+        if (document.getElementById("cname") != "") {
+            let onHandleData = (result) => {
+                navigate("/doz/editCourse/" + result.id);
+            }
+            RequestCreateModule(document.getElementById("cname"), document.getElementById("cname"), user, onHandleData)
+        }
         // hier muss definiert werrden wie die daten ans backend gegeben werden sollen (maybe weiterleitung zu der dazugehörenden edit page)
     }
 
-    let onClickMainmenu = ()=>{
+    let onClickMainmenu = () => {
         document.querySelector("body>div.modal-backdrop").remove();
         navigate("/doz")
 
@@ -224,12 +234,12 @@ function NewCourse() {
 
                                 </div>
                                 <div className="col-2"><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#linkmodal">
-                                        Generate link
-                                    </button>
+                                    Generate link
+                                </button>
                                 </div>
                                 <div className="col-2"><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#backmainmanu">
-                                        Cancel
-                                    </button>
+                                    Cancel
+                                </button>
                                 </div>
                             </div>
                             <div className="row">

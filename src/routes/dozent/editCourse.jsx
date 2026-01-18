@@ -1,17 +1,31 @@
 import DayTimeSelector from "../../components/dozent/daytimeselector";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SettingFeedbackSlider from "../../components/dozent/settingFeedbackslider";
 import SettingSwipeQuestion from "../../components/dozent/settingSwipeQuestion";
 import QRCode from "react-qr-code";
+import { useNavigate, useParams } from "react-router-dom";
+import { AuthenticationContext } from "../../context/authenticationContext";
+import { RequestCreateModule, RequestModule, RequestUpdateModule } from "../../requests/requestModules";
 
-function EditCourse() {
-
-    let data;//hier müssten die daten vom backend abgefragt werden
-
+function NewCourse() {
+    let {fbnr} = useParams();
+    let { user } = useContext(AuthenticationContext);
     let [daySelected, setDaySelected] = useState([]);
     let [feedbackslider, setFeedbackslider] = useState([]);
     let [swipequestion, setSwipequestion] = useState([]);
-    console.log(feedbackslider);
+    let [data , setData] = useState({});
+
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+        let onDataLoad=(result)=>{
+            setData({...result})
+        }
+        RequestModule(user,fbnr,onDataLoad)
+    }, [])
+    
+
+
     let frequence = [
         {
             value: "onetime",
@@ -27,7 +41,7 @@ function EditCourse() {
         },
         {
             value: "bwklyeven",
-            label: "Biweekly (even Weeks)"
+            label: "Biweekly (even weeks)"
         },
         {
             value: "monthly",
@@ -53,7 +67,7 @@ function EditCourse() {
         },
         {
             name: "Thirsday",
-            nameshort: "THR",
+            nameshort: "THU",
             id: "wdthr",
         },
         {
@@ -139,9 +153,21 @@ function EditCourse() {
         setSwipequestion(array)
     }
 
-    let onSubmitNewCours = (evt) => {
+    let onUpdateCours = (evt) => {
         evt.preventDefault();
+        if (document.getElementById("cname") != "") {
+            let onHandleData = (result) => {
+                setData(...result);
+            }
+            RequestUpdateModule(document.getElementById("cname"),fbnr, user, onHandleData)
+        }
         // hier muss definiert werrden wie die daten ans backend gegeben werden sollen (maybe weiterleitung zu der dazugehörenden edit page)
+    }
+
+    let onClickMainmenu = () => {
+        document.querySelector("body>div.modal-backdrop").remove();
+        navigate("/doz")
+
     }
 
     return (
@@ -180,11 +206,28 @@ function EditCourse() {
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="backmainmanu" tabindex="-1" aria-labelledby="backmainmanuLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="backmainmanuLabel">Link</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>All unsaved chainges will be removed. If you want to proceed click "Back to main manu".</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" onClick={onClickMainmenu}>Back to main manu</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="card">
 
                 <div className="card-body">
 
-                    <form action="/hiermus die anfrageseite stehen" onSubmit={onSubmitNewCours} method="post">
+                    <form action="/hiermus die anfrageseite stehen" onSubmit={onUpdateCours} method="post">
 
                         <div className="container">
                             <div className="row">
@@ -199,16 +242,20 @@ function EditCourse() {
 
                                 </div>
                                 <div className="col-2"><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#linkmodal">
-                                        Generate link
-                                    </button>
+                                    Generate link
+                                </button>
+                                </div>
+                                <div className="col-2"><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#backmainmanu">
+                                    Cancel
+                                </button>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-3">
-                                    <h4 >Cours Name</h4>
+                                    <h4 >Course name</h4>
                                 </div>
                                 <div className="col-9">
-                                    <input type="text" id="cname" name="cname" className="form-control" placeholder="Enter Cours Name" />
+                                    <input type="text" id="cname" name="cname" className="form-control" placeholder="Enter Cours Name" value={data.title} />
                                 </div>
                             </div>
                             <div className="row">
@@ -313,7 +360,7 @@ function EditCourse() {
 
                             </div>
                             <div className="row">
-                                <div className="col-3"><h4>after lecutre swipe questions</h4></div>
+                                <div className="col-3"><h4>After lecutre swipe questions</h4></div>
                                 <div className="col-9">
                                     <div className="card p-0">
                                         <div className="card-body">
@@ -345,4 +392,4 @@ function EditCourse() {
 
 }
 
-export default EditCourse
+export default NewCourse

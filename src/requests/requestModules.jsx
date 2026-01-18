@@ -2,15 +2,27 @@
 
 function RequestModuleList(setData, user) {
     var http = new XMLHttpRequest();
-    let data = {
-  id: 0,
-  module_id: 0,
-  start_time: "2026-01-18T20:16:13.306Z",
-  end_time: "2026-01-18T20:16:13.306Z",
-  join_code: "string",
-  is_active: true
+    const link = "https://swipeback-backend.onrender.com/modules/";
+
+    http.open('GET', link, true);
+    http.setRequestHeader('Content-type', 'application/json');
+    http.setRequestHeader('Authorization', 'bearer ' + user.access_token);
+    http.onload = function () {
+        let result = JSON.parse(this.responseText);
+        if (result.detail == null) {
+            setData({
+                notLoaded: false,
+                moduleList: result
+            })
+        }
+    };
+
+    http.send();
 }
-    const link = "https://swipeback-backend.onrender.com/modules/?data="+encodeURI(JSON.stringify(data));
+
+function RequestModule(user, id, OnLoadData) {
+    var http = new XMLHttpRequest();
+    const link = "https://swipeback-backend.onrender.com/modules/"+id;
 
     http.open('GET', link, true);
     http.setRequestHeader('Content-type', 'application/json');
@@ -18,17 +30,56 @@ function RequestModuleList(setData, user) {
     http.onload = function () {
         let result = JSON.parse(this.responseText);
         if (result.title != null) {
-            setData({
-                notLoaded: false,
-                moduleList: result
-            })
+            OnLoadData(result);
+        }
+        
+    };
+
+    http.send();
+}
+
+function RequestCreateModule(title, description, user, OnLoadData) {
+    var http = new XMLHttpRequest();
+    const link = "https://swipeback-backend.onrender.com/modules/";
+    let data = {
+        title: title,
+        description: description
+    }
+    http.open('POST', link, true);
+    http.setRequestHeader('Content-type', 'application/json');
+    http.setRequestHeader('Authorization', 'bearer ' + user.access_token);
+    http.onload = function () {
+        let result = JSON.parse(this.responseText);
+        if (result.title != null) {
+            OnLoadData(result);
         }
     };
-    
-    console.log(data);
+
+    http.send(JSON.stringify(data));
+}
+
+function RequestUpdateModule(title, id, user, OnLoadData) {
+    var http = new XMLHttpRequest();
+    const link = "https://swipeback-backend.onrender.com/modules/"+id;
+    let data = {
+        title: title,
+    }
+    http.open('PATCH', link, true);
+    http.setRequestHeader('Content-type', 'application/json');
+    http.setRequestHeader('Authorization', 'bearer ' + user.access_token);
+    http.onload = function () {
+        let result = JSON.parse(this.responseText);
+        if (result.title != null) {
+            OnLoadData(result);
+        }
+    };
+
     http.send(JSON.stringify(data));
 }
 
 export {
-    RequestModuleList
+    RequestModuleList,
+    RequestModule,
+    RequestCreateModule,
+    RequestUpdateModule
 }
