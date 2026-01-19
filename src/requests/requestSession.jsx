@@ -1,6 +1,7 @@
 function RequestStartSession( modulId, OnLoadData) {
     var http = new XMLHttpRequest();
-    const link = "https://swipeback-backend.onrender.com/module/" + modulId + "/session/start";
+    console.log("requestsend");
+    const link = "https://swipeback-backend.onrender.com/module/" + modulId + "/sessions/start";
     http.open('POST', link, true);
     http.setRequestHeader('Content-type', 'application/json');
     http.onload = function () {
