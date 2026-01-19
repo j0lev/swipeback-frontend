@@ -6,6 +6,7 @@ import Headline from '../../components/headline';
 import Questiontext from '../../components/student/questiontext';
 import "../../styles/fb-page.css";
 import { useNavigate, useParams } from "react-router-dom";
+import { RequestCreateTextFeedback } from "../../requests/requestTextFeedback";
 
 
 function Feedback() {
@@ -30,6 +31,10 @@ function Feedback() {
       if(document.getElementById("question").value!=""){
         let txt = document.getElementById("question").value;
         document.getElementById("question").value="";
+        let onLoadedTextFeedbackCreated = (result)=>{
+          console.log(result);
+        }
+        RequestCreateTextFeedback(txt, fbnr,onLoadedTextFeedbackCreated)
         let time = Date.now();
         setQuestions([
           ...questions,

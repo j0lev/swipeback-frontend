@@ -6,6 +6,7 @@ import QRCode from "react-qr-code";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthenticationContext } from "../../context/authenticationContext";
 import { RequestCreateModule, RequestDeleteModule, RequestModule, RequestUpdateModule } from "../../requests/requestModules";
+import { RequestStartSession } from "../../requests/requestSession";
 
 function NewCourse() {
     let {fbnr} = useParams();
@@ -22,6 +23,7 @@ function NewCourse() {
             setData({...result})
         }
         RequestModule(user,fbnr,onDataLoad)
+        RequestStartSession(fbnr,()=>{})
     }, [])
 
     let onChaingTitle = (evt)=>{
