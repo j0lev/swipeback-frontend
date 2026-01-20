@@ -185,6 +185,7 @@ function NewCourse() {
                         data[i].alreadySaved= true;
 
                     }
+                    console.log(document.getElementById(i+"questionname").value)
                     RequestSesseionAddSwipeQuestion(session.id,user, document.getElementById(i+"questionname").value,onSwipquestionaddet)
                 }
             }
