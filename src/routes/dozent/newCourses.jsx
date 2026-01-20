@@ -209,7 +209,7 @@ function NewCourse() {
                             <p>All unsaved chainges will be removed. If you want to proceed click "Back to main manu".</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" onClick={onClickMainmenu}>Back to main manu</button>
+                            <button type="button" class="btn btn-primary" onClick={onClickMainmenu}>Back to main manu</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
@@ -225,19 +225,19 @@ function NewCourse() {
                             <div className="row">
                                 <div className="col-4"><h3>Add New Course</h3></div>
                                 <div className="col-2">
-                                    <button className="btn btn-secondary" type="submit">Save</button>
+                                    <button className="btn btn-primary" type="submit">Save</button>
                                 </div>
                                 <div className="col-2">
-                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#qrmodal">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#qrmodal">
                                         Generate QR-code
                                     </button>
 
                                 </div>
-                                <div className="col-2"><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#linkmodal">
+                                <div className="col-2"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#linkmodal">
                                     Generate link
                                 </button>
                                 </div>
-                                <div className="col-2"><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#backmainmanu">
+                                <div className="col-2"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#backmainmanu">
                                     Cancel
                                 </button>
                                 </div>
@@ -339,7 +339,7 @@ function NewCourse() {
                                                 <div className="row">
                                                     <div className="col-12 p-4 justify-content-cneter">
                                                         <div>
-                                                            <button type="button" class="btn btn-outline-secondary circle rounded-circle fs-2" onClick={onPlusClickedSlider}>+</button>
+                                                            <button type="button" class="btn btn-outline-primary circle rounded-circle fs-2" onClick={onPlusClickedSlider}>+</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -364,7 +364,7 @@ function NewCourse() {
                                                 <div className="row">
                                                     <div className="col-12 p-4 justify-content-cneter">
                                                         <div>
-                                                            <button type="button" class="btn btn-outline-secondary circle rounded-circle fs-2" onClick={onPlusClickedSwipe} >+</button>
+                                                            <button type="button" class="btn btn-outline-primary circle rounded-circle fs-2" onClick={onPlusClickedSwipe} >+</button>
                                                         </div>
                                                     </div>
                                                 </div>

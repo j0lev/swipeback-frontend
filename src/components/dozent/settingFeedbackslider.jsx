@@ -35,7 +35,7 @@ function SettingFeedbackSlider(props) {
             </div>
 
             <div className="col-3">
-                <button type="button" class="btn btn-outline-secondary circle rounded-circle fs-2" onClick={props.onclick}> - </button>
+                <button type="button" class="btn btn-outline-primary circle rounded-circle fs-2" onClick={props.onclick}> - </button>
             </div>
         </div>
     </>

@@ -60,10 +60,10 @@ function Dozentpage() {
                             }} />
                         </div>
                         <div className="col-9 d-flex justify-content-start">
-                            <a className="btn btn-secondary" onClick={onClickCreateNewModule}>add new Course</a>
+                            <a className="btn btn-primary" onClick={onClickCreateNewModule}>add new Course</a>
                         </div>
                         <div className="col-2">
-                            <a className="btn btn-secondary" onClick={onClickLogout}>Logout</a>
+                            <a className="btn btn-danger" onClick={onClickLogout}>Logout</a>
                         </div>
 
                     </div>
@@ -98,10 +98,10 @@ function Dozentpage() {
                                                         </div>
                                                         <div className="row">
                                                             <div className="col-3 d-flex justify-content-start">
-                                                                <button className="btn btn-secondary">View Dashboard</button>
+                                                                <button className="btn btn-primary">View Dashboard</button>
                                                             </div>
                                                             <div className="col-3 d-flex justify-content-start">
-                                                                <a className="btn btn-secondary" onClick={() => { navigate("/doz/edit/" + data.id) }}>edit</a>
+                                                                <a className="btn btn-primary" onClick={() => { navigate("/doz/edit/" + data.id) }}>edit</a>
                                                             </div>
                                                         </div>
                                                     </div>
