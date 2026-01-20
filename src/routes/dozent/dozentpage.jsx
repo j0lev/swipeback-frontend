@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthenticationContext } from "../../context/authenticationContext";
 import RequestUserInformation from "../../requests/requestUserIformation";
 import { RequestModuleList } from "../../requests/requestModules";
+import logo from '../../assets/HCILogo.png';
 
 
 function Dozentpage() {
@@ -50,7 +51,7 @@ function Dozentpage() {
                     </div>
                     <div className="row pb-3" >
                         <div className="col-3">
-                            logoplatz
+                            <img alt="logo von swipeback" src={logo}/>
                         </div>
                         <div className="col-9 d-flex justify-content-start">
                             <a className="btn btn-secondary" onClick={onClickCreateNewModule}>add new Course</a>
