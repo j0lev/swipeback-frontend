@@ -23,7 +23,7 @@ function NewCourse() {
             setData({...result})
         }
         RequestModule(user,fbnr,onDataLoad)
-        RequestStartSession(fbnr,()=>{})
+        RequestStartSession(fbnr ,user ,()=>{})
     }, [])
 
     let onChaingTitle = (evt)=>{
