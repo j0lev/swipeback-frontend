@@ -10,15 +10,9 @@ Lobby Controller
 
 import { useState, useCallback, useMemo } from 'react';
 
-export function useLobbyController() {
+export function useLobbyController(swipequestionList) {
     //1. fetch info from backend  
-    const questions = useMemo(() => [ //questions for the final part
-    'I understood the topic',
-    'The pace was appropriate',
-    'The examples were helpful',
-    'I cant think of any good questions',
-    'Kein bock mehr zu fragen',
-  ], []);
+    const questions = useMemo(() => swipequestionList, []);
     const sliderEmojis = ['🎄','🎉','🎆'] //simulates already fetched values from backend
     const [index, setIndex] = useState(0);
     const [answers, setAnswers] = useState([]); 

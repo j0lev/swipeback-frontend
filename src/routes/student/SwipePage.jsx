@@ -7,51 +7,69 @@ As only in times of writing did i at least somewhat understood, what i was doing
 import { useState, useEffect } from 'react';
 import QuestionCard from '../../components/student/QuestionCard';
 import { useLobbyController } from '../../controller/useLobbyController';
+import { RequestLoadQuestionsByJoincode } from '../../requests/requestFeedbackquestion';
+import { useParams } from 'react-router-dom';
 
 function SwipePage() {
+  let [qlist, setQlist] = useState([]);
+  let {fbnr} = useParams();
+  useEffect(() => {
+    let onQuestionsLoad = (results) => {
+      setQlist(results);
+    }
+    RequestLoadQuestionsByJoincode(fbnr, onQuestionsLoad )
+  }, [])
+
   const {
     currentQuestion,
     answerQuestion,
     isFinished,
     answers
-  } = useLobbyController();
+  } = useLobbyController(qlist);
 
   //useEffect: do once rendered
-  useEffect(() => { 
+  useEffect(() => {
 
-  const handleKeyDown = (e) => { //function we would call, once key is pressed
-    if (e.key === 'ArrowLeft') answerQuestion('left');
-    if (e.key === 'ArrowRight') answerQuestion('right');
-  };
+    const handleKeyDown = (e) => { //function we would call, once key is pressed
+      if (e.key === 'ArrowLeft') answerQuestion('left');
+      if (e.key === 'ArrowRight') answerQuestion('right');
+    };
 
-  window.addEventListener('keydown', handleKeyDown); //listens for a key pressed, goes into handleKeyDown
+    window.addEventListener('keydown', handleKeyDown); //listens for a key pressed, goes into handleKeyDown
 
-  return () => window.removeEventListener('keydown', handleKeyDown); //turns off the listener
-  },[answerQuestion]);
-
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column', //this is responsible for one-on-another stacking
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
+    return () => window.removeEventListener('keydown', handleKeyDown); //turns off the listener
+  }, [answerQuestion]);
+  if (qlist.length > 0) {
+    return (
+      <div
+        style={{
+          height: '100vh',
+          display: 'flex',
+          flexDirection: 'column', //this is responsible for one-on-another stacking
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <div>
-            <h4>Right now, u can swipe using the arrows ('ArrowLeft'/'ArrowRight' )</h4>
-            <h5>No visual effect yet, but the cards change and u are prompted with "all done!" in the end</h5>
+          <h4>Right now, u can swipe using the arrows ('ArrowLeft'/'ArrowRight' )</h4>
+          <h5>No visual effect yet, but the cards change and u are prompted with "all done!" in the end</h5>
         </div>
         <div>
-            {!isFinished ? (
+          {!isFinished ? (
             <QuestionCard text={currentQuestion} />
-            ) : (
+          ) : (
             <h2>All done!</h2>
-            )}
+          )}
         </div>
-      
-    </div>
-  );
+
+      </div>
+    );
+  } else {
+    return <>
+      <div class="spinner-border" role="status">
+        <span class="sr-only"></span>
+      </div>
+    </>
+  }
 }
 export default SwipePage
