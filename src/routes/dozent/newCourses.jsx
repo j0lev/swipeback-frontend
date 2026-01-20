@@ -339,7 +339,7 @@ function NewCourse() {
                                                 <div className="row">
                                                     <div className="col-12 p-4 justify-content-cneter">
                                                         <div>
-                                                            <button type="button" class="btn btn-outline-secondary rounded-circle fs-2" onClick={onPlusClickedSlider}>+</button>
+                                                            <button type="button" class="btn btn-outline-secondary circle rounded-circle fs-2" onClick={onPlusClickedSlider}>+</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -364,7 +364,7 @@ function NewCourse() {
                                                 <div className="row">
                                                     <div className="col-12 p-4 justify-content-cneter">
                                                         <div>
-                                                            <button type="button" class="btn btn-outline-secondary rounded-circle fs-2" onClick={onPlusClickedSwipe} >+</button>
+                                                            <button type="button" class="btn btn-outline-secondary circle rounded-circle fs-2" onClick={onPlusClickedSwipe} >+</button>
                                                         </div>
                                                     </div>
                                                 </div>

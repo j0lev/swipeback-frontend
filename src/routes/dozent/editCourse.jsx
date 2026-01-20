@@ -7,6 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AuthenticationContext } from "../../context/authenticationContext";
 import { RequestCreateModule, RequestDeleteModule, RequestModule, RequestUpdateModule } from "../../requests/requestModules";
 import { RequestEndSession, RequestSesseionAddSwipeQuestion, RequestStartSession } from "../../requests/requestSession";
+import "../../styles/editpage_minus_plus_circle.css";
 
 function NewCourse() {
     let {fbnr} = useParams();
@@ -394,7 +395,7 @@ function NewCourse() {
                                                 <div className="row">
                                                     <div className="col-12 p-4 justify-content-cneter">
                                                         <div>
-                                                            <button type="button" class="btn btn-outline-secondary rounded-circle fs-2" onClick={onPlusClickedSlider}>+</button>
+                                                            <button type="button" class="btn btn-outline-secondary circle rounded-circle fs-2" onClick={onPlusClickedSlider}>+</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -419,7 +420,7 @@ function NewCourse() {
                                                 <div className="row">
                                                     <div className="col-12 p-4 justify-content-cneter">
                                                         <div>
-                                                            <button type="button" class="btn btn-outline-secondary rounded-circle fs-2" onClick={onPlusClickedSwipe} >+</button>
+                                                            <button type="button" class="btn btn-outline-secondary circle rounded-circle fs-2" onClick={onPlusClickedSwipe} >+</button>
                                                         </div>
                                                     </div>
                                                 </div>
