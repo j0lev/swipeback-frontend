@@ -185,7 +185,7 @@ function NewCourse() {
                         data[i].alreadySaved= true;
 
                     }
-                    RequestSesseionAddSwipeQuestion(session.id,user, document.getElementById(i+"questionname"),onSwipquestionaddet)
+                    RequestSesseionAddSwipeQuestion(session.id,user, document.getElementById(i+"questionname").value,onSwipquestionaddet)
                 }
             }
         }
