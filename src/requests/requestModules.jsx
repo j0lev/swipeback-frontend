@@ -81,7 +81,6 @@ function RequestDeleteModule(id, user, onSuccess) {
     var http = new XMLHttpRequest();
     const link = "https://swipeback-backend.onrender.com/modules/"+id;
     http.open('DELETE', link, true);
-    http.setRequestHeader('Content-type', 'application/json');
     http.setRequestHeader('Authorization', 'bearer ' + user.access_token);
     http.onload = function () {
         if (this.readyState == 4 && this.status == 204) {
