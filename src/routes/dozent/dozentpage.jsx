@@ -9,26 +9,26 @@ import logo from '../../assets/HCILogo.png';
 function Dozentpage() {
     let { user, setUser } = useContext(AuthenticationContext);
     let navigate = useNavigate();
-    let [ modules, setModules ] = useState({ notLoaded: true });
+    let [modules, setModules] = useState({ notLoaded: true });
     console.log(user)
-    useEffect(()=>{
-    if (user.access_token == null) {
-        navigate("/");
-       
-    } else {
-        if (user.username == null) {
-            RequestUserInformation(user, setUser);
+    useEffect(() => {
+        if (user.access_token == null) {
+            navigate("/");
+
+        } else {
+            if (user.username == null) {
+                RequestUserInformation(user, setUser);
+            }
+            if (modules.notLoaded) {
+                RequestModuleList(setModules, user);
+            }
         }
-        if(modules.notLoaded){
-            RequestModuleList(setModules, user);
-        }
-    }
 
-    },[user])
-    
+    }, [user])
 
 
-    let onClickCreateNewModule = ()=>{
+
+    let onClickCreateNewModule = () => {
         navigate("/doz/newCourse");
     }
 
@@ -51,7 +51,13 @@ function Dozentpage() {
                     </div>
                     <div className="row pb-3" >
                         <div className="col-3">
-                            <img alt="logo von swipeback" src={logo}/>
+                            <img alt="logo von swipeback" src={logo} style={{
+                                position: "absolute",
+                                top: "5rem",
+                                left: "7%",
+                                width: "7rem",
+                                height: "auto",
+                            }} />
                         </div>
                         <div className="col-9 d-flex justify-content-start">
                             <a className="btn btn-secondary" onClick={onClickCreateNewModule}>add new Course</a>
@@ -95,7 +101,7 @@ function Dozentpage() {
                                                                 <button className="btn btn-secondary">View Dashboard</button>
                                                             </div>
                                                             <div className="col-3 d-flex justify-content-start">
-                                                                <a className="btn btn-secondary" onClick={()=>{navigate("/doz/edit/"+data.id)}}>edit</a>
+                                                                <a className="btn btn-secondary" onClick={() => { navigate("/doz/edit/" + data.id) }}>edit</a>
                                                             </div>
                                                         </div>
                                                     </div>
