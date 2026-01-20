@@ -10,6 +10,7 @@ html, body, #root {
   /*from this line on, trying to fix that false alignment*/
   width: 100%;       /* actually helped, crazy */
   height: 100%;
+  overflow: auto;
   display: block;
 }
 
