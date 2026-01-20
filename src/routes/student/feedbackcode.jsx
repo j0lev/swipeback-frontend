@@ -26,7 +26,7 @@ function FeedbackCode() {
 
                 {/* Username Input */}
                 <input
-                    type="number"
+                    type="text"
                     id="code"
                     placeholder="Enter Code"
                     className="input-field"

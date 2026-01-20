@@ -18,7 +18,45 @@ function RequestStartSession( modulId, user, OnLoadData) {
     http.send();
 }
 
+function RequestEndSession( sessionid, user) {
+    var http = new XMLHttpRequest();
+    if(sessionid==null){
+        return;
+    }
+    const link = "https://swipeback-backend.onrender.com/sessions/" + sessionid + "/end";
+    http.open('POST', link, true);
+    http.setRequestHeader('Authorization', 'bearer ' + user.access_token);
+    http.setRequestHeader('Content-type', 'application/json');
+    http.onload = function () {
+  
+    };
+
+    http.send();
+}
+
+function RequestSesseionAddSwipeQuestion(sessionid, user, textvalue, OnLoadData){
+    var http = new XMLHttpRequest();
+    if(sessionid==null){
+        return;
+    }
+    let data ={
+        text: textvalue
+    }
+    const link = "https://swipeback-backend.onrender.com/sessions/" + sessionid + "/questions";
+    http.open('POST', link, true);
+    http.setRequestHeader('Authorization', 'bearer ' + user.access_token);
+    http.setRequestHeader('Content-type', 'application/json');
+    http.onload = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            OnLoadData(JSON.parse(this.response))
+        }
+  
+    };
+    http.send(JSON.stringify(data));
+}
 
 export {
-    RequestStartSession
+    RequestStartSession,
+    RequestEndSession,
+    RequestSesseionAddSwipeQuestion
 }

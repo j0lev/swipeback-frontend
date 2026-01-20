@@ -6,7 +6,7 @@ import QRCode from "react-qr-code";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthenticationContext } from "../../context/authenticationContext";
 import { RequestCreateModule, RequestDeleteModule, RequestModule, RequestUpdateModule } from "../../requests/requestModules";
-import { RequestStartSession } from "../../requests/requestSession";
+import { RequestEndSession, RequestSesseionAddSwipeQuestion, RequestStartSession } from "../../requests/requestSession";
 
 function NewCourse() {
     let {fbnr} = useParams();
@@ -15,15 +15,20 @@ function NewCourse() {
     let [feedbackslider, setFeedbackslider] = useState([]);
     let [swipequestion, setSwipequestion] = useState([]);
     let [data , setData] = useState({});
+    let [session, setSession] = useState({});
 
     const navigate = useNavigate();
 
+    
     useEffect(()=>{
         let onDataLoad=(result)=>{
             setData({...result})
         }
         RequestModule(user,fbnr,onDataLoad)
-        RequestStartSession(fbnr ,user ,()=>{})
+        let onLoadSession = (res)=>{
+            setSession(res);
+        }
+        RequestStartSession(fbnr ,user ,onLoadSession)
     }, [])
 
     let onChaingTitle = (evt)=>{
@@ -146,7 +151,10 @@ function NewCourse() {
     let onPlusClickedSwipe = () => {
         setSwipequestion([
             ...swipequestion,
-            swipequestion.length
+            {
+                alreadySaved:false,
+                id: swipequestion.length
+            }
         ])
     }
 
@@ -169,6 +177,18 @@ function NewCourse() {
             }
             RequestUpdateModule(document.getElementById("cname").value,fbnr, user, onHandleData)
         }
+        if(session.id!=null){
+            for(let i = 0; i<swipequestion.length;i++){
+                if(!swipequestion[i].alreadySaved){
+                    let onSwipquestionaddet=()=>{
+                        let data = [ ...swipequestion]
+                        data[i].alreadySaved= true;
+
+                    }
+                    RequestSesseionAddSwipeQuestion(session.id,user, document.getElementById(i+"questionname"),onSwipquestionaddet)
+                }
+            }
+        }
         // hier muss definiert werrden wie die daten ans backend gegeben werden sollen (maybe weiterleitung zu der dazugehörenden edit page)
     }
     let onClickDeleteCourse = ()=>{
@@ -176,11 +196,14 @@ function NewCourse() {
             document.querySelector("body>div.modal-backdrop").remove();
             navigate("/doz");
         }
+        RequestEndSession(session.id,user);
         RequestDeleteModule(fbnr,user,success)
     }
 
     let onClickMainmenu = () => {
         document.querySelector("body>div.modal-backdrop").remove();
+        
+        RequestEndSession(session.id,user);
         navigate("/doz")
 
     }
@@ -196,8 +219,9 @@ function NewCourse() {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <QRCode value="hier könnte ihre link stehen" />
-                            <p>hier könnte ihre link stehen</p>
+                            <QRCode value={"https://swipeback.pages.dev/fb/"+session.join_code} />
+                            <p>{"https://swipeback.pages.dev/fb/"+session.join_code}</p>
+                            <p>Join Code: {session.join_code}</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -383,7 +407,7 @@ function NewCourse() {
                                         <div className="card-body">
                                             <div className="container">
                                                 {swipequestion.map(i => {
-                                                    return <SettingSwipeQuestion id={i} onclick={onMinusclickedSwipe}></SettingSwipeQuestion>
+                                                    return <SettingSwipeQuestion id={i.id} onclick={onMinusclickedSwipe}></SettingSwipeQuestion>
                                                 }
                                                 )}
                                                 <div className="row">
