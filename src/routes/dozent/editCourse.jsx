@@ -173,7 +173,8 @@ function NewCourse() {
         evt.preventDefault();
         if (document.getElementById("cname").value != ""||document.getElementById("cname").value==data.title) {
             let onHandleData = (result) => {
-                setData(...result);
+                console.log(result)
+                setData({...result});
             }
             RequestUpdateModule(document.getElementById("cname").value,fbnr, user, onHandleData)
         }
