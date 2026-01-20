@@ -198,8 +198,12 @@ function NewCourse() {
             document.querySelector("body>div.modal-backdrop").remove();
             navigate("/doz");
         }
-        RequestEndSession(session.id,user);
-        RequestDeleteModule(fbnr,user,success)
+        let successsessionend = ()=>{
+            RequestDeleteModule(fbnr,user,success)
+        }
+        
+        RequestEndSession(session.id,user,successsessionend);
+        
     }
 
     let onClickMainmenu = () => {

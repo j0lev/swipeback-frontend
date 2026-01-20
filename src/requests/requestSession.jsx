@@ -1,4 +1,4 @@
-function RequestStartSession( modulId, user, OnLoadData) {
+function RequestStartSession(modulId, user, OnLoadData) {
     var http = new XMLHttpRequest();
     console.log("requestsend");
     console.log(user);
@@ -18,9 +18,9 @@ function RequestStartSession( modulId, user, OnLoadData) {
     http.send();
 }
 
-function RequestEndSession( sessionid, user) {
+function RequestEndSession(sessionid, user, onSuccess) {
     var http = new XMLHttpRequest();
-    if(sessionid==null){
+    if (sessionid == null) {
         return;
     }
     const link = "https://swipeback-backend.onrender.com/sessions/" + sessionid + "/end";
@@ -28,18 +28,20 @@ function RequestEndSession( sessionid, user) {
     http.setRequestHeader('Authorization', 'bearer ' + user.access_token);
     http.setRequestHeader('Content-type', 'application/json');
     http.onload = function () {
-  
+        if (this.readyState == 4 && this.status == 200) {
+            onSuccess();
+        }
     };
 
     http.send();
 }
 
-function RequestSesseionAddSwipeQuestion(sessionid, user, textvalue, OnLoadData){
+function RequestSesseionAddSwipeQuestion(sessionid, user, textvalue, OnLoadData) {
     var http = new XMLHttpRequest();
-    if(sessionid==null){
+    if (sessionid == null) {
         return;
     }
-    let data ={
+    let data = {
         text: textvalue
     }
     const link = "https://swipeback-backend.onrender.com/sessions/" + sessionid + "/questions";
@@ -50,7 +52,7 @@ function RequestSesseionAddSwipeQuestion(sessionid, user, textvalue, OnLoadData)
         if (this.readyState == 4 && this.status == 200) {
             OnLoadData(JSON.parse(this.response))
         }
-  
+
     };
     http.send(JSON.stringify(data));
 }
