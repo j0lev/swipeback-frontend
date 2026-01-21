@@ -10,23 +10,13 @@ import { useLobbyController } from '../../controller/useLobbyController';
 import { RequestLoadQuestionsByJoincode } from '../../requests/requestFeedbackquestion';
 import { useParams } from 'react-router-dom';
 
-function SwipePage() {
-  let [qlist, setQlist] = useState([]);
-  let {fbnr} = useParams();
-  useEffect(() => {
-    let onQuestionsLoad = (results) => {
-      setQlist([...results]);
-    }
-    RequestLoadQuestionsByJoincode(fbnr, onQuestionsLoad )
-  }, [])
-  console.log(qlist);
-  if(qlist.length>0){
+function SwipePage( props ) {
   const {
     currentQuestion,
     answerQuestion,
     isFinished,
     answers
-  } = useLobbyController(qlist);
+  } = useLobbyController(props.qlist);
 
   //useEffect: do once rendered
   useEffect(() => {
@@ -40,8 +30,7 @@ function SwipePage() {
 
     return () => window.removeEventListener('keydown', handleKeyDown); //turns off the listener
   }, [answerQuestion]);
-  }
-  if (qlist.length > 0) {
+
     return (
       <div
         style={{
@@ -67,11 +56,7 @@ function SwipePage() {
       </div>
     );
   } else {
-    return <>
-      <div class="spinner-border" role="status">
-        <span class="sr-only"></span>
-      </div>
-    </>
+    return 
   }
 }
 export default SwipePage
