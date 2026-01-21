@@ -1,5 +1,6 @@
 //import requires additional installation to work on, run "npm install framer-motion" if u want to fire up locally
-import { useMotionValue, useTransform, motion } from "framer-motion";
+//import { useMotionValue, useTransform, motion } from "framer-motion";
+import { useMotionValue, useTransform, motion } from 'motion/react';
 import { useState} from 'react';
 
 const QuestionCard = ({ text, onSwipe, animate }) => {

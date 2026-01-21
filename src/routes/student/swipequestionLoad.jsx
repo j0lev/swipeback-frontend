@@ -4,7 +4,10 @@ import { useEffect, useState } from "react";
 import SwipePage from "./SwipePage";
 
 function SwipeQuestionLoad() {
-    let [qlist, setQlist] = useState([]);
+    let [qlist, setQlist] = useState(["dksglafd",
+        "sdhlafhkdas",
+        "sdlkfhalsd"
+    ]);
     let { fbnr } = useParams();
     useEffect(() => {
         let onQuestionsLoad = (results) => {
