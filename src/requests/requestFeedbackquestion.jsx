@@ -17,7 +17,7 @@ function RequestLoadQuestionsBySessionid(user , sessioncode, onDataLoad){
 
 function RequestLoadQuestionsByJoincode( joincode, onDataLoad){
     var http = new XMLHttpRequest();
-    const link = "https://swipeback-backend.onrender.com/sessions/questions/by_join_code/"+joincode+"/questions";
+    const link = "https://swipeback-backend.onrender.com/sessions/questions/by_join_code/"+joincode+"";
   
     http.open('GET', link, true);
     http.setRequestHeader('Content-type', 'application/json');
