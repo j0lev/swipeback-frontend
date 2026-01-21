@@ -18,7 +18,7 @@ export function useLobbyController(swipequestionList) {
     const [answers, setAnswers] = useState([]); 
     const [sliderValues, setSliderValues] = useState([5, 5, 5]); //this is where i control the number of sliders
     // 2. Store state locally
-  
+    console.log(questions);
 
     // 3. Answer to UI
     const currentQuestion = questions[index];

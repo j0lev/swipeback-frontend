@@ -15,11 +15,11 @@ function SwipePage() {
   let {fbnr} = useParams();
   useEffect(() => {
     let onQuestionsLoad = (results) => {
-      setQlist(results);
+      setQlist([...results]);
     }
     RequestLoadQuestionsByJoincode(fbnr, onQuestionsLoad )
   }, [])
-
+  if(qlist.length==0){
   const {
     currentQuestion,
     answerQuestion,
@@ -39,6 +39,7 @@ function SwipePage() {
 
     return () => window.removeEventListener('keydown', handleKeyDown); //turns off the listener
   }, [answerQuestion]);
+  }
   if (qlist.length > 0) {
     return (
       <div
