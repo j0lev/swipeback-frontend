@@ -14,7 +14,7 @@ import SwipeQuestionLoad from "./routes/student/swipequestionLoad";
 
 function App() {
   useEffect(
-    RequestLogin("test", "test", () => { console.log("its working") }), []
+    ()=>{RequestLogin("test", "test", () => { console.log("its working") })}, []
   )
 
   return (
