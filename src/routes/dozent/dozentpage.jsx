@@ -49,20 +49,21 @@ function Dozentpage() {
 
                         </div>
                     </div>
-                    <div className="row pb-3" >
-                        <div className="col-3">
-                            <img alt="logo von swipeback" src={logo} style={{
+                    <img alt="logo von swipeback" src={logo} style={{
                                 position: "absolute",
                                 top: "5rem",
                                 left: "7%",
                                 width: "7rem",
                                 height: "auto",
                             }} />
+                    <div className="row pb-3" >
+                        <div className="col-3">
+                            
                         </div>
-                        <div className="col-9 d-flex justify-content-start">
+                        <div className="col-6 d-flex justify-content-start">
                             <a className="btn btn-primary" onClick={onClickCreateNewModule}>add new Course</a>
                         </div>
-                        <div className="col-2">
+                        <div className="col-3">
                             <a className="btn btn-danger" onClick={onClickLogout}>Logout</a>
                         </div>
 

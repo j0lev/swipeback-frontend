@@ -10,38 +10,38 @@ function FeedbackCode() {
         navigate("/fb/" + document.getElementById("code").value);
     };
 
+    const onClickBack = () =>{
+        navigate("/");
+    }
+
+
     return (
+    <div className="container d-flex justify-content-center ">
+      <div className='card w-50'>
+        <div className='card-body justify-content-start'>
+          <div class="mb-3 text-start">
+            <label for="code" class="form-label">Course Code</label>
+            <input type="text" class="form-control" id="code" placeholder="Enter code" />
+          </div>
+          <div className='mb-3'>
+            <button
+              onClick={onClickSubmit}
+              className='btn btn-primary'
+            >Submit</button>
+          </div>
 
-
-
-        <div className="page-center-container">
-            <div className="container-box" style={{
-                display: 'flex',
-                flexDirection: 'column', // Stacks inputs and buttons vertically
-                gap: '15px',
-                width: '320px',          // Fixed width looks better for login cards
-                alignItems: 'center'
-            }}>
-                <h1 style={{ marginBottom: '10px' }}>Login</h1>
-
-                {/* Username Input */}
-                <input
-                    type="text"
-                    id="code"
-                    placeholder="Enter Code"
-                    className="input-field"
-                    style={{ width: '100%', boxSizing: 'border-box' }}
-                />
-                <button
-                    onClick={onClickSubmit}
-                    className='btn-universal'
-                    style={{ width: '100%' }}
-                >
-                    submit
-                </button>
-            </div>
+          <div className='mb-3'>
+            <button
+              onClick={onClickBack}
+              className='btn btn-secondary border-dark'
+            >Back</button>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+
+  );
+
 }
 
 export default FeedbackCode

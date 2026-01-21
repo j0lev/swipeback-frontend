@@ -225,21 +225,20 @@ function NewCourse() {
                             <div className="row">
                                 <div className="col-4"><h3>Add New Course</h3></div>
                                 <div className="col-2">
-                                    <button className="btn btn-primary" type="submit">Save</button>
-                                </div>
-                                <div className="col-2">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#qrmodal">
-                                        Generate QR-code
-                                    </button>
 
                                 </div>
-                                <div className="col-2"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#linkmodal">
-                                    Generate link
-                                </button>
+                                <div className="col-2">
+
+
                                 </div>
-                                <div className="col-2"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#backmainmanu">
-                                    Cancel
-                                </button>
+                                <div className="col-2">
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#backmainmanu">
+                                        Cancel
+                                    </button>
+                                </div>
+                                <div className="col-2">
+                                    <button className="btn btn-primary" type="submit">Save</button>
+
                                 </div>
                             </div>
                             <div className="row">
@@ -289,7 +288,7 @@ function NewCourse() {
                                                     <div className="input-group d-flex w-100 justify-content-center">
                                                         {weekdays.map(day => {
                                                             return (<><input type="checkbox" className="btn-check" id={day.id} name={day.id} value={day.name} onChange={onDaySelected} />
-                                                                <label htmlFor={day.id} className="btn btn-outline-primary border-radius-right">{day.nameshort}</label></>)
+                                                                <label htmlFor={day.id} className="btn btn-outline-primary rounded-0">{day.nameshort}</label></>)
                                                         }
                                                         )}
 
@@ -314,7 +313,7 @@ function NewCourse() {
                                                     frequence.map(freq => {
                                                         return (<>
                                                             <input type="radio" className="btn-check" id={freq.value} name="freq" value={freq.value} />
-                                                            <label htmlFor={freq.value} className="btn btn-outline-primary">{freq.label}</label>
+                                                            <label htmlFor={freq.value} className="btn btn-outline-primary rounded-0">{freq.label}</label>
                                                         </>);
                                                     }
 

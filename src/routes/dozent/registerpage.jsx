@@ -57,11 +57,59 @@ function RegisterPage() {
             document.getElementById("errMessage").style.display = "block";
         }
     }
+return (
+    <div className="container d-flex justify-content-center ">
+      <div className='card w-50'>
+        <div className='card-body justify-content-start'>
+          <div class="mb-3 text-start">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" class="form-control" id="username" placeholder="Exampleuser" />
+          </div>
+          <div class="mb-3 text-start">
+            <label for="fullname" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="fullname" placeholder="Examplename" />
+          </div>
+          <div class="mb-3 text-start">
+            <label for="mail" class="form-label">E-mail</label>
+            <input type="text" class="form-control" id="mail" placeholder="Example@mail.de" />
+          </div>
+          <div class="mb-3 text-start">
+            <label for="pwd" class="form-label">Username</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter Password" />
+          </div>
+          <div class="mb-3 text-start">
 
+            <label for="repeatpwd" class="form-label">Password</label>
+            <input type="password" class="form-control" id="repeatpwd" placeholder="Repeat Password" />
+          </div>
+          <div id='errMessage' class="alert alert-danger" style={{ display: "none" }} role="alert">
+            A simple danger alert—check it out!
+          </div>
+          <div className='mb-3'>
+            <button
+              onClick={onClickLogin}
+              className='btn btn-primary'
+            >Register</button>
+          </div>
+          <div className='mb-3'>
+            <button
+              onClick={goToLandingPage}
+              className='btn btn-secondary border'
+            >
+              Login instead
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+);
 
 
 
     return (
+
+        
         /* as im incredibly smart, ive decided to split centering and containers, so that both are reusable */
         /* +: both are reusable, but -: i need to wrap everything in both */
         /* follow for more questionable design choices */
