@@ -55,8 +55,5 @@ function SwipePage( props ) {
 
       </div>
     );
-  } else {
-    return 
-  }
 }
 export default SwipePage
