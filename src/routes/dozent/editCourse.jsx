@@ -10,34 +10,34 @@ import { RequestEndSession, RequestSesseionAddSwipeQuestion, RequestStartSession
 import "../../styles/editpage_minus_plus_circle.css";
 
 function NewCourse() {
-    let {fbnr} = useParams();
+    let { fbnr } = useParams();
     let { user } = useContext(AuthenticationContext);
     let [daySelected, setDaySelected] = useState([]);
     let [feedbackslider, setFeedbackslider] = useState([]);
     let [swipequestion, setSwipequestion] = useState([]);
-    let [data , setData] = useState({});
+    let [data, setData] = useState({});
     let [session, setSession] = useState({});
 
     const navigate = useNavigate();
 
-    
-    useEffect(()=>{
-        let onDataLoad=(result)=>{
-            setData({...result})
+
+    useEffect(() => {
+        let onDataLoad = (result) => {
+            setData({ ...result })
         }
-        RequestModule(user,fbnr,onDataLoad)
-        let onLoadSession = (res)=>{
+        RequestModule(user, fbnr, onDataLoad)
+        let onLoadSession = (res) => {
             setSession(res);
         }
-        RequestStartSession(fbnr ,user ,onLoadSession)
+        RequestStartSession(fbnr, user, onLoadSession)
     }, [])
 
-    let onChaingTitle = (evt)=>{
-        let newData = {...data};
-        newData.title=evt.currentTarget.value;
+    let onChaingTitle = (evt) => {
+        let newData = { ...data };
+        newData.title = evt.currentTarget.value;
         setData(newData);
     }
-    
+
 
 
     let frequence = [
@@ -153,7 +153,7 @@ function NewCourse() {
         setSwipequestion([
             ...swipequestion,
             {
-                alreadySaved:false,
+                alreadySaved: false,
                 id: swipequestion.length
             }
         ])
@@ -172,45 +172,45 @@ function NewCourse() {
 
     let onUpdateCours = (evt) => {
         evt.preventDefault();
-        if (document.getElementById("cname").value != ""||document.getElementById("cname").value==data.title) {
+        if (document.getElementById("cname").value != "" || document.getElementById("cname").value == data.title) {
             let onHandleData = (result) => {
                 console.log(result)
-                setData({...result});
+                setData({ ...result });
             }
-            RequestUpdateModule(document.getElementById("cname").value,fbnr, user, onHandleData)
+            RequestUpdateModule(document.getElementById("cname").value, fbnr, user, onHandleData)
         }
-        if(session.id!=null){
-            for(let i = 0; i<swipequestion.length;i++){
-                if(!swipequestion[i].alreadySaved){
-                    let onSwipquestionaddet=()=>{
-                        let data = [ ...swipequestion]
-                        data[i].alreadySaved= true;
+        if (session.id != null) {
+            for (let i = 0; i < swipequestion.length; i++) {
+                if (!swipequestion[i].alreadySaved) {
+                    let onSwipquestionaddet = () => {
+                        let data = [...swipequestion]
+                        data[i].alreadySaved = true;
 
                     }
-                    console.log(document.getElementById(i+"questionname").value)
-                    RequestSesseionAddSwipeQuestion(session.id,user, document.getElementById(i+"questionname").value,onSwipquestionaddet)
+                    console.log(document.getElementById(i + "questionname").value)
+                    RequestSesseionAddSwipeQuestion(session.id, user, document.getElementById(i + "questionname").value, onSwipquestionaddet)
                 }
             }
         }
         // hier muss definiert werrden wie die daten ans backend gegeben werden sollen (maybe weiterleitung zu der dazugehörenden edit page)
     }
-    let onClickDeleteCourse = ()=>{
-        let success = ()=>{
+    let onClickDeleteCourse = () => {
+        let success = () => {
             document.querySelector("body>div.modal-backdrop").remove();
             navigate("/doz");
         }
-        let successsessionend = ()=>{
-            RequestDeleteModule(fbnr,user,success)
+        let successsessionend = () => {
+            RequestDeleteModule(fbnr, user, success)
         }
-        
-        RequestEndSession(session.id,user,successsessionend);
-        
+
+        RequestEndSession(session.id, user, successsessionend);
+
     }
 
     let onClickMainmenu = () => {
         document.querySelector("body>div.modal-backdrop").remove();
-        
-        RequestEndSession(session.id,user);
+
+        RequestEndSession(session.id, user);
         navigate("/doz")
 
     }
@@ -226,8 +226,8 @@ function NewCourse() {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <QRCode value={"https://swipeback.pages.dev/fb/"+session.join_code} />
-                            <p>{"https://swipeback.pages.dev/fb/"+session.join_code}</p>
+                            <QRCode value={"https://swipeback.pages.dev/fb/" + session.join_code} />
+                            <p>{"https://swipeback.pages.dev/fb/" + session.join_code}</p>
                             <p>Join Code: {session.join_code}</p>
                         </div>
                         <div class="modal-footer">
@@ -247,7 +247,7 @@ function NewCourse() {
                             <p>Are You sure you want to delete this course</p>
                         </div>
                         <div class="modal-footer">
-                            
+
                             <button type="button" class="btn btn-danger" onClick={onClickDeleteCourse}>Delete Course</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
@@ -287,17 +287,20 @@ function NewCourse() {
                                 </div>
                                 <div className="col-2">
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletemodal">
-                                    Delete
-                                </button>
-<div className="col-2"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#backmainmanu">
-                                    Cancel
-                                </button>
+                                        Delete
+                                    </button>
+                                    
+                                    
+
                                 </div>
                                 <div className="col-2">
-                                </div>
-                                <button className="btn btn-primary" type="submit">Save</button>
-                                
-                                </div>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#backmainmanu">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                    <div className="col-2">
+                                        <button className="btn btn-primary" type="submit">Save</button>
+                                    </div>
                             </div>
                             <div className="row">
                                 <div className="col-3">
