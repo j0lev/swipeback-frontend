@@ -8,7 +8,11 @@ function SwipeQuestionLoad() {
     let { fbnr } = useParams();
     useEffect(() => {
         let onQuestionsLoad = (results) => {
-            setQlist([...results]);
+            let newarr = []
+            for(let i =0;i<results.length;i++){
+                newarr.push(results[i].text)
+            }
+            setQlist(newarr);
         }
         RequestLoadQuestionsByJoincode(fbnr, onQuestionsLoad)
     }, [])
