@@ -19,6 +19,7 @@ function SwipePage() {
     }
     RequestLoadQuestionsByJoincode(fbnr, onQuestionsLoad )
   }, [])
+  console.log(qlist);
   if(qlist.length>0){
   const {
     currentQuestion,
