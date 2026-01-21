@@ -4,11 +4,11 @@ This will make it easier for others, but mostly for me myself to understnad, wha
 As only in times of writing did i at least somewhat understood, what i was doing
 */
 
-import { useState, useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import QuestionCard from '../../components/student/QuestionCard';
 import { useLobbyController } from '../../controller/useLobbyController';
-import { RequestLoadQuestionsByJoincode } from '../../requests/requestFeedbackquestion';
-import { useParams } from 'react-router-dom';
+//animation import
+import { useAnimation, AnimatePresence, motion } from "framer-motion";
 
 function SwipePage( props ) {
   const {
@@ -17,40 +17,66 @@ function SwipePage( props ) {
     isFinished,
     answers
   } = useLobbyController(props.qlist);
+  const controls= useAnimation()
 
+
+  //kind of an in-between the swipe/press and answer question
+  const triggerSwipe = useCallback (async (dir) => {
+    
+    await controls.start({
+      x:dir === "right" ? 500 : -500,
+      opacity: 0,
+      transition: {duration: 0.4}
+    });
+    
+    answerQuestion(dir);
+    controls.set({x:0, opacity: 1});
+  }, [controls, answerQuestion]);
   //useEffect: do once rendered
   useEffect(() => {
 
-    const handleKeyDown = (e) => { //function we would call, once key is pressed
-      if (e.key === 'ArrowLeft') answerQuestion('left');
-      if (e.key === 'ArrowRight') answerQuestion('right');
-    };
+  const handleKeyDown = (e) => { //function we would call, once key is pressed
+    if (e.key === 'ArrowLeft') triggerSwipe('left');
+    if (e.key === 'ArrowRight') triggerSwipe('right');
+  };
 
     window.addEventListener('keydown', handleKeyDown); //listens for a key pressed, goes into handleKeyDown
 
-    return () => window.removeEventListener('keydown', handleKeyDown); //turns off the listener
-  }, [answerQuestion]);
+  return () => window.removeEventListener('keydown', handleKeyDown); //turns off the listener
+  },[triggerSwipe]);
 
-    return (
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          flexDirection: 'column', //this is responsible for one-on-another stacking
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+  return (
+    <div
+      style={{
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column', //this is responsible for one-on-another stacking
+        justifyContent: 'center',
+        alignItems: 'center',
+        overflow: 'hidden' //prevents scrollbars during exit animations
+      }}
+    >
+        
         <div>
-          <h4>Right now, u can swipe using the arrows ('ArrowLeft'/'ArrowRight' )</h4>
-          <h5>No visual effect yet, but the cards change and u are prompted with "all done!" in the end</h5>
+            <AnimatePresence mode="wait">
+              {!isFinished ? (
+              <QuestionCard 
+              key={currentQuestion}
+              text={currentQuestion} 
+              onSwipe={triggerSwipe}
+              animate={controls}
+              />
+              ) : (
+              <motion.h2
+                initial = {{opacity: 0}}
+                animate = {{opacity: 1}}
+              >All done!
+              </motion.h2>
+              )}
+            </AnimatePresence>
         </div>
         <div>
-          {!isFinished ? (
-            <QuestionCard text={currentQuestion} />
-          ) : (
-            <h2>All done!</h2>
-          )}
+            <h5>Drag or Swipe with arrows!</h5>
         </div>
 
       </div>
