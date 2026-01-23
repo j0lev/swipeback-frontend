@@ -6,6 +6,7 @@ import { AuthenticationContext } from "../../context/authenticationContext";
 import diagram from "../../assets/placeholderGraphikforSliderFeedback.png";
 import LectureQuestion from "../../components/dozent/lectureQuestion";
 import { RequestLoadQuestionResults } from "../../requests/requestFeedbackquestion";
+import Questiontext from "../../components/student/questiontext";
 function CourseFeedback() {
     let { fbnr, sessionId } = useParams();
     let [questions, setQuestion] = useState([]);
