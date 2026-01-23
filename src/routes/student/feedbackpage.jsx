@@ -16,7 +16,22 @@ function Feedback() {
   let scheight = screen.height * 0.60;
   scheight = scheight + "px";
   const [questions, setQuestions] = useState([]);
-  const [slider, setSlider] = useState([]);
+  const [slider, setSlider] = useState([{
+          iconnum: 1,
+          title: "Understandebility",
+          color: "yellow"
+        },
+        {
+          iconnum: 2,
+          title: "Keep trak",
+          color: "red"
+        },
+        {
+          iconnum: 3,
+          title: "Lecture speed",
+          color: "green"
+        }
+      ]);
   let onKeyPressQuestion = (event) => {
     if (event.key === 'Enter') {
       askQuestion();

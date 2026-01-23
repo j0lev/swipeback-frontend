@@ -47,7 +47,7 @@ function RequestLoadQuestionsByJoincode( joincode, onDataLoad){
 
 function RequestAnswerQuestion(question_id, answer, joincode ) {
     var http = new XMLHttpRequest();
-    const link = "https://swipeback-backend.onrender.com/feedback/text/"+joincode+"/";
+    const link = "https://swipeback-backend.onrender.com/feedback/question/"+joincode+"/";
     let data = {
         question_id: question_id,
         answer: answer

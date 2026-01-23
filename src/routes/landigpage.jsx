@@ -56,7 +56,7 @@ function Landingpage() {
           <div class="mb-3 text-start">
 
             <label for="pwd" class="form-label">Password</label>
-            <input type="text" class="form-control" id="pwd" placeholder="Enter Password" />
+            <input type="password" class="form-control" id="pwd" placeholder="Enter Password" />
           </div>
           <div id='errMessage' class="alert alert-danger" style={{ display: "none" }} role="alert">
             A simple danger alert—check it out!

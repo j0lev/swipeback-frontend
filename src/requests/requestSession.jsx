@@ -59,7 +59,7 @@ function RequestSesseionAddSwipeQuestion(sessionid, user, textvalue, OnLoadData)
 
 function RequestTextFeedback(sessionid,user,OnLoadData){
      var http = new XMLHttpRequest();
-     const link = "https://swipeback-backend.onrender.com/sessions/" + sessionid + "/text-feedback";
+     const link = "https://swipeback-backend.onrender.com/feedback/sessions/" + sessionid + "/text-feedback";
     http.open('GET', link, true);
     http.setRequestHeader('Authorization', 'bearer ' + user.access_token);
     http.setRequestHeader('Content-type', 'application/json');
