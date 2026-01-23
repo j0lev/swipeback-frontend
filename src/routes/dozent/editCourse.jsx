@@ -414,13 +414,13 @@ function NewCourse() {
                                                     return <SettingFeedbackSlider text={i.text} id={i.id} onclick={onMinusclickedSlider}></SettingFeedbackSlider>
                                                 })}
 
-                                                <div className="row">
+                                                {(feedbackslider.length < 3 ? <div className="row">
                                                     <div className="col-12 p-4 justify-content-cneter">
                                                         <div>
                                                             <button type="button" class="btn btn-outline-primary circle rounded-circle fs-2" onClick={onPlusClickedSlider}>+</button>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> : <></>)}
                                             </div>
 
                                         </div>

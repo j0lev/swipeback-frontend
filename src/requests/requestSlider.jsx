@@ -16,7 +16,7 @@ function RequestAddSlider(modulId,user, slidername){
 
 function RequestGetSliderByModuleNR(modulId,user, OnLoadData){
      var http = new XMLHttpRequest();
-     const link = "https://swipeback-backend.onrender.com/modules/sliders/by_join/" + modulId + "";
+     const link = "https://swipeback-backend.onrender.com/modules/sliders/by_module_id/" + modulId + "";
     http.open('GET', link, true);
     http.setRequestHeader('Authorization', 'bearer ' + user.access_token);
     http.setRequestHeader('Content-type', 'application/json');

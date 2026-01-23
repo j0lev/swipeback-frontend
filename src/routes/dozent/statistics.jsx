@@ -37,7 +37,7 @@ function CourseFeedback() {
                             <div id='questions' data-bs-spy="scroll" data-bs-offset="0" className="h-90 overflow-auto mb-3" tabindex="0">
                                 {(questions.length > 0 ? questions.map((item) => {
 
-                                    return <Questiontext time={item.time} >{item.text}</Questiontext>
+                                    return <Questiontext time={item.timestamp} >{item.content}</Questiontext>
                                 }) : <div class="spinner-border" role="status"><span class="sr-only"></span></div>)}
                             </div>
                         </div>
