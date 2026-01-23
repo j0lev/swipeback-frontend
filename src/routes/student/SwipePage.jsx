@@ -10,6 +10,8 @@ import { useLobbyController } from '../../controller/useLobbyController';
 //animation import
 import { useAnimation, AnimatePresence, motion } from "motion/react";
 
+import "../../styles/swipequestions.css"
+
 function SwipePage(props) {
   const {
     currentQuestion,

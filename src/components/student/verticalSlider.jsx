@@ -6,9 +6,9 @@ import { useId } from "react";
 function VerticalSlider(props) {
     let barvolume = useId();
     let iconList = [
-            <i class="bi bi-lightbulb fs-3"></i>,
-            <i class="bi bi-book fs-3"></i>,
-            <i class="bi bi-alarm fs-3"></i>
+            <i class="bi icon bi-lightbulb fs-3"></i>,
+            <i class="bi icon bi-book fs-3"></i>,
+            <i class="bi icon bi-alarm fs-3"></i>
         ]
     let bar = useId();
     let infobox = useId();
