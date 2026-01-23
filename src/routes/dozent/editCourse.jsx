@@ -292,10 +292,15 @@ function NewCourse() {
 
                         <div className="container">
                             <div className="row">
-                                <div className="col-4"><h3>Add New Course</h3></div>
+                                <div className="col-3"><h3>Add New Course</h3></div>
                                 <div className="col-2">
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#qrmodal">
                                         Generate QR-code
+                                    </button>
+                                </div>
+                                <div className="col">
+                                    <button type="button" class="btn btn-primary" onClick={()=>{navigate("/doz/"+fbnr+"/"+session.id)}}>
+                                        ViewStats
                                     </button>
                                 </div>
                                 <div className="col-2">
