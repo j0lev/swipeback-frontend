@@ -21,7 +21,7 @@ function CourseFeedback() {
             setLQuestion([...data])
         }
         RequestTextFeedback(sessionId, user, questionsLoadet);
-        RequestLoadQuestionResults(sessionId, user,onLectueQuestionLoadet)
+        RequestLoadQuestionResults(user,sessionId,onLectueQuestionLoadet)
 
     })
     return (

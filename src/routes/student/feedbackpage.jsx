@@ -105,11 +105,9 @@ function Feedback() {
                   <div className='container h-100'>
                     <div className='row h-100'>
 
-                      <VerticalSlider iconnum={0} color="yellow" info="Understandability"></VerticalSlider>
-
-                      <VerticalSlider iconnum={1} color="red" info="Keep track"></VerticalSlider>
-
-                      <VerticalSlider iconnum={2} color="green" info="Lecture speed"></VerticalSlider>
+                      {slider.map((item) => {
+                        return <VerticalSlider iconnum={item.iconnum} color={item.color} info={item.title}></VerticalSlider>
+                      })}
                     </div>
                   </div>
                 </div>
@@ -166,7 +164,7 @@ function Feedback() {
               <div className='container h-100'>
                 <div className='row h-100'>
                   {slider.map((item) => {
-                    <VerticalSlider iconnum={item.iconnum} color={item.color} info={item.title}></VerticalSlider>
+                    return <VerticalSlider iconnum={item.iconnum} color={item.color} info={item.title}></VerticalSlider>
                   })}
 
                 </div>
