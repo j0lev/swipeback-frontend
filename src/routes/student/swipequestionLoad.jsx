@@ -5,6 +5,7 @@ import SwipePage from "./SwipePage";
 
 function SwipeQuestionLoad() {
     let [qlist, setQlist] = useState([]);
+    let [fullList, setFulllist] = useState([])
     let { fbnr } = useParams();
     useEffect(() => {
         let onQuestionsLoad = (results) => {
@@ -12,12 +13,13 @@ function SwipeQuestionLoad() {
             for(let i =0;i<results.length;i++){
                 newarr.push(results[i].text)
             }
+            setFulllist([...results])
             setQlist(newarr);
         }
         RequestLoadQuestionsByJoincode(fbnr, onQuestionsLoad)
     }, [])
     if(qlist.length>0){
-        return <SwipePage qlist={qlist}></SwipePage>
+        return <SwipePage qlist={qlist} fullList={fullList}></SwipePage>
     }else{
         return (
             <>

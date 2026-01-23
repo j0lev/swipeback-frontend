@@ -57,8 +57,25 @@ function RequestSesseionAddSwipeQuestion(sessionid, user, textvalue, OnLoadData)
     http.send(JSON.stringify(data));
 }
 
+function RequestTextFeedback(sessionid,user,OnLoadData){
+     var http = new XMLHttpRequest();
+     const link = "https://swipeback-backend.onrender.com/sessions/" + sessionid + "/text-feedback";
+    http.open('GET', link, true);
+    http.setRequestHeader('Authorization', 'bearer ' + user.access_token);
+    http.setRequestHeader('Content-type', 'application/json');
+    http.onload = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            OnLoadData(JSON.parse(this.response))
+        }
+
+    };
+    http.send();
+}
+
+
 export {
     RequestStartSession,
     RequestEndSession,
-    RequestSesseionAddSwipeQuestion
+    RequestSesseionAddSwipeQuestion,
+    RequestTextFeedback
 }

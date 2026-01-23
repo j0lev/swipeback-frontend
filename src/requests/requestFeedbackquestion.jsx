@@ -15,6 +15,22 @@ function RequestLoadQuestionsBySessionid(user , sessioncode, onDataLoad){
     http.send();
 }
 
+function RequestLoadQuestionResults(user , sessioncode, onDataLoad){
+    var http = new XMLHttpRequest();
+    const link = "https://swipeback-backend.onrender.com/sessions/"+sessioncode+"/questions/results";
+  
+    http.open('GET', link, true);
+    http.setRequestHeader('Authorization', 'bearer ' + user.access_token);
+    http.setRequestHeader('Content-type', 'application/json');
+    http.onload = function () {
+        let result = JSON.parse(this.responseText);
+        onDataLoad(result);
+        
+    };
+
+    http.send();
+}
+
 function RequestLoadQuestionsByJoincode( joincode, onDataLoad){
     var http = new XMLHttpRequest();
     const link = "https://swipeback-backend.onrender.com/sessions/questions/by_join_code/"+joincode+"";
@@ -64,5 +80,6 @@ export {
     RequestLoadQuestionsBySessionid,
     RequestAnswerQuestion,
     RequestCreateQuestion,
-    RequestLoadQuestionsByJoincode
+    RequestLoadQuestionsByJoincode,
+    RequestLoadQuestionResults
 }

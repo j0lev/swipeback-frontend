@@ -11,8 +11,11 @@ import { useLobbyController } from '../../controller/useLobbyController';
 import { useAnimation, AnimatePresence, motion } from "motion/react";
 
 import "../../styles/swipequestions.css"
+import { RequestAnswerQuestion } from '../../requests/requestFeedbackquestion';
+import { useParams } from 'react-router-dom';
 
 function SwipePage(props) {
+  let { fbnr } = useParams();
   const {
     currentQuestion,
     answerQuestion,
@@ -34,6 +37,15 @@ function SwipePage(props) {
     answerQuestion(dir);
     controls.set({ x: 0, opacity: 1 });
   }, [controls, answerQuestion]);
+  
+    if(isFinished){
+      for(let i = 0; i<props.fullList.length; i++ ){
+        if(answers[i].question==props.fullList[i].text){
+          RequestAnswerQuestion(props.fullList[i].id,answers[i].answer=="right",fbnr)
+        }
+      }
+    }
+
   //useEffect: do once rendered
   useEffect(() => {
 

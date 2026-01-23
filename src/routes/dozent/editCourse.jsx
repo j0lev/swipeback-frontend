@@ -8,6 +8,7 @@ import { AuthenticationContext } from "../../context/authenticationContext";
 import { RequestCreateModule, RequestDeleteModule, RequestModule, RequestUpdateModule } from "../../requests/requestModules";
 import { RequestEndSession, RequestSesseionAddSwipeQuestion, RequestStartSession } from "../../requests/requestSession";
 import "../../styles/editpage_minus_plus_circle.css";
+import { RequestGetSliderByModuleNR } from "../../requests/requestSlider";
 
 function NewCourse() {
     let { fbnr } = useParams();
@@ -29,6 +30,18 @@ function NewCourse() {
         let onLoadSession = (res) => {
             setSession(res);
         }
+        let onSliderDataLoad = (result) => {
+            let data = [];
+            for(let i = 0;i<result.length&&i<3;i++){
+                data.push({
+                    id: i,
+                    text: result[i].text,
+
+                })
+            }
+            setFeedbackslider(data)
+        }
+        RequestGetSliderByModuleNR(fbnr,user,onSliderDataLoad)
         RequestStartSession(fbnr, user, onLoadSession)
     }, [])
 
@@ -145,7 +158,7 @@ function NewCourse() {
     let onPlusClickedSlider = () => {
         setFeedbackslider([
             ...feedbackslider,
-            feedbackslider.length
+            { id:feedbackslider.length}
         ])
     }
 
@@ -393,7 +406,7 @@ function NewCourse() {
                                         <div className="card-body">
                                             <div className="container">
                                                 {feedbackslider.map(i => {
-                                                    return <SettingFeedbackSlider id={i} onclick={onMinusclickedSlider}></SettingFeedbackSlider>
+                                                    return <SettingFeedbackSlider text={i.text} id={i.id} onclick={onMinusclickedSlider}></SettingFeedbackSlider>
                                                 })}
 
                                                 <div className="row">

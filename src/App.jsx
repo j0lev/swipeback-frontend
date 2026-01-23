@@ -9,6 +9,7 @@ import RegisterPage from "./routes/dozent/registerpage";
 import RequestLogin from "./requests/requestLogin";
 import { useEffect } from "react";
 import SwipeQuestionLoad from "./routes/student/swipequestionLoad";
+import CourseFeedback from "./routes/dozent/statistics";
 
 
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/doz" element={<Dozentpage />} />
         <Route path="/doz/newCourse" element={<NewCourse />} />
         <Route path="/doz/edit/:fbnr" element={<EditCourse />} />
+        <Route path="/doz/:fbnr/:sessionId" element={<CourseFeedback />} />
       </Routes>
 
     </>)

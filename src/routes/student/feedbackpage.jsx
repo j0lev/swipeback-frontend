@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import VerticalSlider from "../../components/student/verticalSlider"
 import JsonData from "../../../testfiles/test-feedback.json"
 import Headline from '../../components/headline';
@@ -7,6 +7,7 @@ import Questiontext from '../../components/student/questiontext';
 import "../../styles/fb-page.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { RequestCreateTextFeedback } from "../../requests/requestTextFeedback";
+import { RequestGetSliderByJoinCode } from "../../requests/requestSlider";
 
 
 function Feedback() {
@@ -15,12 +16,37 @@ function Feedback() {
   let scheight = screen.height * 0.60;
   scheight = scheight + "px";
   const [questions, setQuestions] = useState([]);
+  const [slider, setSlider] = useState([]);
   let onKeyPressQuestion = (event) => {
     if (event.key === 'Enter') {
       askQuestion();
 
     }
   }
+  useEffect(() => {
+
+    let onLoadSliderData = (result) => {
+      let data = []
+      let choseColor = (index) => {
+        if (index == 0) {
+          return "yellow"
+        } else if (index == 1) {
+          return "red"
+        } else {
+          return "green"
+        }
+      }
+      for (let i = 0; i < result.length && i < 3; i++) {
+        data.push({
+          iconnum: i,
+          title: result.text,
+          color: choseColor(i)
+        })
+      }
+      setSlider(data);
+    }
+    RequestGetSliderByJoinCode(fbnr, onLoadSliderData)
+  }, [])
   window.addEventListener("keydown", (evt) => {
     if (evt.key == "AltGraph") {
       navigat("/fb/" + fbnr + "/swipe")
@@ -78,6 +104,7 @@ function Feedback() {
                 <div className="card-body">
                   <div className='container h-100'>
                     <div className='row h-100'>
+
                       <VerticalSlider iconnum={0} color="yellow" info="Understandability"></VerticalSlider>
 
                       <VerticalSlider iconnum={1} color="red" info="Keep track"></VerticalSlider>
@@ -138,11 +165,10 @@ function Feedback() {
 
               <div className='container h-100'>
                 <div className='row h-100'>
-                  <VerticalSlider iconnum={0} color="yellow" info="Understandability"></VerticalSlider>
+                  {slider.map((item) => {
+                    <VerticalSlider iconnum={item.iconnum} color={item.color} info={item.title}></VerticalSlider>
+                  })}
 
-                  <VerticalSlider iconnum={1} color="red" info="Keep track"></VerticalSlider>
-
-                  <VerticalSlider iconnum={2} color="green" info="Lecture speed"></VerticalSlider>
                 </div>
               </div>
 

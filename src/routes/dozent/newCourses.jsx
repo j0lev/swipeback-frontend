@@ -6,6 +6,7 @@ import QRCode from "react-qr-code";
 import { useNavigate } from "react-router-dom";
 import { AuthenticationContext } from "../../context/authenticationContext";
 import { RequestCreateModule } from "../../requests/requestModules";
+import { RequestAddSlider } from "../../requests/requestSlider";
 
 function NewCourse() {
     let { user } = useContext(AuthenticationContext);
@@ -149,6 +150,10 @@ function NewCourse() {
         evt.preventDefault();
         if (document.getElementById("cname").value != "") {
             let onHandleData = (result) => {
+                for (let i = 0; i < feedbackslider.length; i++) {
+                    RequestAddSlider(result.id, user, document.getElementById(feedbackslider[i] + "slidername").value)
+                }
+
                 navigate("/doz/edit/" + result.id);
             }
             RequestCreateModule(document.getElementById("cname").value, document.getElementById("cname").value, user, onHandleData)
@@ -335,13 +340,13 @@ function NewCourse() {
                                                     return <SettingFeedbackSlider id={i} onclick={onMinusclickedSlider}></SettingFeedbackSlider>
                                                 })}
 
-                                                <div className="row">
+                                                {(feedbackslider.length < 3 ? <div className="row">
                                                     <div className="col-12 p-4 justify-content-cneter">
                                                         <div>
                                                             <button type="button" class="btn btn-outline-primary circle rounded-circle fs-2" onClick={onPlusClickedSlider}>+</button>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> : <></>)}
                                             </div>
 
                                         </div>

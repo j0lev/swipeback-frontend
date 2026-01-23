@@ -1,8 +1,18 @@
+import { useState } from "react";
 import ColorPicker from "./colorpicker";
 import Iconselector from "./iconselector";
 
 
 function SettingFeedbackSlider(props) {
+    let startvalue="";
+    if(props.text!=null){
+        startvalue= props.text;
+    }
+    let [slidername, setSlidername] = useState(startvalue);
+    let onSlidernameChange=(evt)=>{
+        setSlidername(evt.currentTarget.value);
+    }
+    
     return (<>
         <div className="row">
             <div className="col-9 p-0">
@@ -13,7 +23,7 @@ function SettingFeedbackSlider(props) {
                                 <label htmlFor={props.id+"slidername"} className="col-form-label">Slidername</label>
                             </div>
                             <div className="col-4">
-                                <input type="text" className="form-control" id={props.id+"slidername"} name={props.id+"slidername"}/>
+                                <input type="text" className="form-control" id={props.id+"slidername"} value={slidername} onChange={onSlidernameChange} name={props.id+"slidername"}/>
                             </div>
                             <div className="col-1">
                                 <label htmlFor={props.id+"symbol"} className="col-form-label">Logo</label>
