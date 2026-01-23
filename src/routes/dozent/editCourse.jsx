@@ -316,7 +316,7 @@ function NewCourse() {
                                             Cancel
                                         </button>
                                     </div>
-                                    <div className="col-2">
+                                    <div className="col">
                                         <button className="btn btn-primary" type="submit">Save</button>
                                     </div>
                             </div>

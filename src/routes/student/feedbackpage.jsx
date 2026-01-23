@@ -17,17 +17,17 @@ function Feedback() {
   scheight = scheight + "px";
   const [questions, setQuestions] = useState([]);
   const [slider, setSlider] = useState([{
-          iconnum: 1,
+          iconnum: 0,
           title: "Understandebility",
           color: "yellow"
         },
         {
-          iconnum: 2,
+          iconnum: 1,
           title: "Keep trak",
           color: "red"
         },
         {
-          iconnum: 3,
+          iconnum: 2,
           title: "Lecture speed",
           color: "green"
         }

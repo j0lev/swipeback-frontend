@@ -23,7 +23,7 @@ function CourseFeedback() {
         RequestTextFeedback(sessionId, user, questionsLoadet);
         RequestLoadQuestionResults(user,sessionId,onLectueQuestionLoadet)
 
-    })
+    },[])
     return (
         <div className="container ">
             <div className="row " style={{ height: scheight }}>

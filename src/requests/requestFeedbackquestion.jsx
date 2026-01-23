@@ -17,7 +17,7 @@ function RequestLoadQuestionsBySessionid(user , sessioncode, onDataLoad){
 
 function RequestLoadQuestionResults(user , sessioncode, onDataLoad){
     var http = new XMLHttpRequest();
-    const link = "https://swipeback-backend.onrender.com/sessions/"+sessioncode+"/questions/results";
+    const link = "https://swipeback-backend.onrender.com/feedback/sessions/"+sessioncode+"/questions/results";
   
     http.open('GET', link, true);
     http.setRequestHeader('Authorization', 'bearer ' + user.access_token);
