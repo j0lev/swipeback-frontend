@@ -14,7 +14,6 @@ function VerticalSlider(props) {
     let infobox = useId();
     let onClickInformation = (evt)=>{
         
-        console.log(evt);
         let element = document.getElementById(infobox);
         if(!element.classList.contains("infobox-visible")){
             evt.stopPropagation();

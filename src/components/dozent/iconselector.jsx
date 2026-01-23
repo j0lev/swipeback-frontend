@@ -16,11 +16,11 @@ function Iconselector(props) {
     let buttonid = useId();
     let onClickDropdown = (evt) => {
         let target = evt.target;
-        console.log(target.tagName);
+
         while (target.tagName != "A") {
             target = target.parentNode;
         }
-        console.log(target)
+
         //evt.preventDefault();
         document.getElementById(buttonid).innerHTML = target.innerHTML;
     }

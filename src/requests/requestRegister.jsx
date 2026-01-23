@@ -13,12 +13,11 @@ function RequestRegister(usrname, passwd, fullname, mail, onGetResult) {
     http.setRequestHeader('Content-type', 'application/json');
     http.onload = function () {
         // do something to response
-        console.log(this.responseText);
+
         let result = JSON.parse(this.responseText);
         onGetResult(result);
 
     };
-    console.log(data);
     http.send(JSON.stringify(data));
 
 

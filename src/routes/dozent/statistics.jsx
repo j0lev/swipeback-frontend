@@ -33,7 +33,7 @@ function CourseFeedback() {
                         <div className="card-header">
                             <h3>Student Questions</h3>
                         </div>
-                        <div className="card-body">
+                        <div className="card-body h-100">
                             <div id='questions' data-bs-spy="scroll" data-bs-offset="0" className="h-90 overflow-auto mb-3" tabindex="0">
                                 {(questions.length > 0 ? questions.map((item) => {
 
@@ -48,7 +48,7 @@ function CourseFeedback() {
                         <div className="card-header">
                             <h3>Student Slider Feedback</h3>
                         </div>
-                        <div className="card-body">
+                        <div className="card-body h-100">
                             <img alt="Here could should be a placeholder for a diagramm" src={diagram} class="img-fluid" />
                         </div>
                     </div>

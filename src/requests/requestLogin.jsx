@@ -24,14 +24,12 @@ function RequestLogin(username, passwd, onGetResult) {
     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     http.onload = function () {
         // do something to response
-        console.log(this.responseText);
         let result = JSON.parse(this.responseText);
         onGetResult(result)
         //onGetResult(result);
 
     };
     
-    console.log(data.toString());
     http.send(data.toString());
 
 

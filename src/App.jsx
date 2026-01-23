@@ -15,7 +15,7 @@ import CourseFeedback from "./routes/dozent/statistics";
 
 function App() {
   useEffect(
-    ()=>{RequestLogin("test", "test", () => { console.log("its working") })}, []
+    ()=>{RequestLogin("test", "test", () => {  })}, []
   )
 
   return (

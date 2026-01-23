@@ -187,7 +187,6 @@ function NewCourse() {
         evt.preventDefault();
         if (document.getElementById("cname").value != "" || document.getElementById("cname").value == data.title) {
             let onHandleData = (result) => {
-                console.log(result)
                 setData({ ...result });
             }
             RequestUpdateModule(document.getElementById("cname").value, fbnr, user, onHandleData)
@@ -200,7 +199,6 @@ function NewCourse() {
                         data[i].alreadySaved = true;
 
                     }
-                    console.log(document.getElementById(i + "questionname").value)
                     RequestSesseionAddSwipeQuestion(session.id, user, document.getElementById(i + "questionname").value, onSwipquestionaddet)
                 }
             }

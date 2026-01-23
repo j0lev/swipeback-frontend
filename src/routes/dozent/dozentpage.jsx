@@ -10,7 +10,6 @@ function Dozentpage() {
     let { user, setUser } = useContext(AuthenticationContext);
     let navigate = useNavigate();
     let [modules, setModules] = useState({ notLoaded: true });
-    console.log(user)
     useEffect(() => {
         if (user.access_token == null) {
             navigate("/");
@@ -38,7 +37,7 @@ function Dozentpage() {
         //hier muss die session beendet werden
         //navigate("/");
     }
-    console.log(modules);
+
     if (user.full_name != null) {
         return (
             <>

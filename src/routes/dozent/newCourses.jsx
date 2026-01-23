@@ -13,9 +13,7 @@ function NewCourse() {
     let [daySelected, setDaySelected] = useState([]);
     let [feedbackslider, setFeedbackslider] = useState([]);
     let [swipequestion, setSwipequestion] = useState([]);
-    console.log(feedbackslider);
     const navigate = useNavigate();
-    console.log(user)
 
 
 
