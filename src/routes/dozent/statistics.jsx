@@ -25,7 +25,16 @@ function CourseFeedback() {
         RequestLoadQuestionResults(user,sessionId,onLectueQuestionLoadet)
 
     },[])
-    return (
+    let onClickGraphBig=()=>{
+        document.getElementById("graphik").style.display="none";
+    }
+    let onClickGraph=()=>{
+        document.getElementById("graphik").style.display="flex";
+    }
+    return (<>
+        <div id="graphik" className="w-100 h-100 position-absolut" style={{background: "gray",  display: "none", justifyContent: "center", alignItems: "center"}} onClick={onClickGraphBig}>
+            <img alt="Here could should be a placeholder for a diagramm" style={{ width: "80%", height:"80%"}}  src={diagram} class="img-fluid" />
+        </div>
         <div className="container mt-5">
             <div className="row " style={{ height: scheight }}>
                 <div className="col-4 h-100">
@@ -49,7 +58,7 @@ function CourseFeedback() {
                             <h3>Student Slider Feedback</h3>
                         </div>
                         <div className="card-body h-100">
-                            <img alt="Here could should be a placeholder for a diagramm" src={diagram} class="img-fluid" />
+                            <img alt="Here could should be a placeholder for a diagramm" onClick={onClickGraph} src={diagram} class="img-fluid" />
                         </div>
                     </div>
                 </div>
@@ -70,6 +79,7 @@ function CourseFeedback() {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
