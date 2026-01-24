@@ -61,6 +61,7 @@ function SwipePage(props) {
 
   return (
     <div
+    className='card-page-body'
       style={{
         height: '100%',
         display: 'flex',
