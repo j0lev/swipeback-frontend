@@ -1,5 +1,11 @@
-html, body,#root{
+
+.card-page-body{
     background-color: #665fbe
+}
+
+html,body,#root{
+    padding-left: 0;
+    padding-right: 0;
 }
 
 @media (max-width: 960px){
