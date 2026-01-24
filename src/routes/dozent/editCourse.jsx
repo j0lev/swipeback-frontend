@@ -8,7 +8,7 @@ import { AuthenticationContext } from "../../context/authenticationContext";
 import { RequestCreateModule, RequestDeleteModule, RequestModule, RequestUpdateModule } from "../../requests/requestModules";
 import { RequestEndSession, RequestSesseionAddSwipeQuestion, RequestStartSession } from "../../requests/requestSession";
 import "../../styles/editpage_minus_plus_circle.css";
-import { RequestGetSliderByModuleNR } from "../../requests/requestSlider";
+import { RequestAddSlider, RequestGetSliderByModuleNR } from "../../requests/requestSlider";
 
 function NewCourse() {
     let { fbnr } = useParams();
@@ -190,6 +190,10 @@ function NewCourse() {
                 setData({ ...result });
             }
             RequestUpdateModule(document.getElementById("cname").value, fbnr, user, onHandleData)
+            for (let i = 0; i < feedbackslider.length; i++) {
+                    RequestAddSlider(fbnr, user, document.getElementById(feedbackslider[i] + "slidername").value)
+                }
+
         }
         if (session.id != null) {
             for (let i = 0; i < swipequestion.length; i++) {

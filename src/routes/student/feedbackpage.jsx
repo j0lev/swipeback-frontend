@@ -19,17 +19,20 @@ function Feedback() {
   const [slider, setSlider] = useState([{
           iconnum: 0,
           title: "Understandability",
-          color: "yellow"
+          color: "yellow",
+          percent: 50
         },
         {
           iconnum: 1,
           title: "Keeping track",
-          color: "red"
+          color: "red",
+          percent: 50
         },
         {
           iconnum: 2,
-          title: "Lecture speed",
-          color: "green"
+          title: "Good pacing",
+          color: "green",
+          percent: 100
         }
       ]);
   let onKeyPressQuestion = (event) => {
@@ -58,7 +61,7 @@ function Feedback() {
           color: choseColor(i)
         })
       }
-      //setSlider(data);
+      setSlider(data);
     }
     RequestGetSliderByJoinCode(fbnr, onLoadSliderData)
   }, [])
@@ -179,7 +182,7 @@ function Feedback() {
               <div className='container h-100'>
                 <div className='row h-100'>
                   {slider.map((item) => {
-                    return <VerticalSlider iconnum={item.iconnum} color={item.color} info={item.title}></VerticalSlider>
+                    return <VerticalSlider iconnum={item.iconnum} fill={item.percent} color={item.color} info={item.title}></VerticalSlider>
                   })}
 
                 </div>
