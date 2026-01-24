@@ -70,11 +70,11 @@ function RegisterPage() {
                 <div className='card-body justify-content-start'>
                     <div class="mb-3 text-start">
                         <label for="username" class="form-label">Username:</label>
-                        <input type="text" class="form-control" id="username" placeholder="Exampleuser" />
+                        <input type="text" class="form-control" id="username" placeholder="Enter username" />
                     </div>
                     <div class="mb-3 text-start">
                         <label for="fullname" class="form-label">Name:</label>
-                        <input type="text" class="form-control" id="fullname" placeholder="Examplename" />
+                        <input type="text" class="form-control" id="fullname" placeholder="Enter name" />
                     </div>
                     <div class="mb-3 text-start">
                         <label for="mail" class="form-label">E-mail</label>
