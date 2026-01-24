@@ -43,7 +43,8 @@ function RequestCreateModule(title, description, user, OnLoadData) {
     const link = "https://swipeback-backend.onrender.com/modules/";
     let data = {
         title: title,
-        description: description
+        description: description,
+        slider_page_title: ""
     }
     http.open('POST', link, true);
     http.setRequestHeader('Content-type', 'application/json');
