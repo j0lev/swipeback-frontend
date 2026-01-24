@@ -57,7 +57,7 @@ function Feedback() {
       for (let i = 0; i < result.length && i < 3; i++) {
         data.push({
           iconnum: i,
-          title: result.text,
+          title: result[i].text,
           color: choseColor(i)
         })
       }
