@@ -9,17 +9,34 @@ import { RequestLoadQuestionResults } from "../../requests/requestFeedbackquesti
 import Questiontext from "../../components/student/questiontext";
 function CourseFeedback() {
     let { fbnr, sessionId } = useParams();
-    let [questions, setQuestion] = useState([]);
-    let [lquestions, setLQuestion] = useState([]);
+    let [questions, setQuestion] = useState([
+        {
+            text:"Did you learn something new?",
+            no_count:4,
+            yes_count:4,
+        },
+{
+    text:"Were the topics interesting?",
+            no_count:0,
+            yes_count:8,
+},
+{text:"Was the pacing rushed?",
+            no_count:7,
+            yes_count:1,
+
+}]);
+    let [lquestions, setLQuestion] = useState([
+
+    ]);
     let scheight = screen.height * 0.70;
     scheight = scheight + "px";
     let { user } = useContext(AuthenticationContext);
     useEffect(() => {
         let questionsLoadet = (data) => {
-            setQuestion([...data])
+            //setQuestion([...data])
         }
         let onLectueQuestionLoadet= (data)=>{
-            setLQuestion([...data])
+            //setLQuestion([...data])
         }
         RequestTextFeedback(sessionId, user, questionsLoadet);
         RequestLoadQuestionResults(user,sessionId,onLectueQuestionLoadet)
