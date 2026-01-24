@@ -58,7 +58,7 @@ function Feedback() {
           color: choseColor(i)
         })
       }
-      setSlider(data);
+      //setSlider(data);
     }
     RequestGetSliderByJoinCode(fbnr, onLoadSliderData)
   }, [])
