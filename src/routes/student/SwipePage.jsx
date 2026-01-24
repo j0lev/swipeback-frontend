@@ -67,7 +67,8 @@ function SwipePage(props) {
         flexDirection: 'column', //this is responsible for one-on-another stacking
         justifyContent: 'center',
         alignItems: 'center',
-        overflow: 'hidden' //prevents scrollbars during exit animations
+        overflow: 'hidden', //prevents scrollbars during exit animations
+        
       }}
     >
 
@@ -82,20 +83,23 @@ function SwipePage(props) {
               text={currentQuestion}
               onSwipe={triggerSwipe}
               animate={controls}
-            />
-          ) : (
-            <motion.h2
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >All done!
-            </motion.h2>
-          )}
-        </AnimatePresence>
-      </div>
-      <div>
-        <h5>Drag or Swipe with arrows!</h5>
-      </div>
-
+              />
+              ) : (
+              <motion.h1
+                initial = {{opacity: 0}}
+                animate = {{opacity: 1}}
+                style={{ color: "#faeeff" }}
+              >
+                All done!
+              </motion.h1>
+              )}
+            </AnimatePresence>
+        </div>
+        <div>
+            <h5 style={{ color: "#faeeff" }}>Drag or swipe with arrows!</h5>
+            <h6 style={{ color: "#faeeff" }}>&lt;- Disagree | Agree -&gt;</h6>
+        </div>
+      
     </div>
   );
 }
