@@ -88,7 +88,7 @@ function CourseFeedback() {
                         <div className="card-header">
                             <h3>Lecture Questions</h3>
                         </div>
-                        <div className="card-body">
+                        <div className="card-body h-100">
                             <div id='Lecture-questions' data-bs-spy="scroll" data-bs-offset="0" className="h-90 overflow-auto mb-3" tabindex="0">
                                 {(lquestions.length > 0 ? lquestions.map((item) => {
 
