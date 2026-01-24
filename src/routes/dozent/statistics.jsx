@@ -10,7 +10,13 @@ import Questiontext from "../../components/student/questiontext";
 function CourseFeedback() {
     let { fbnr, sessionId } = useParams();
     let [questions, setQuestion] = useState([
-        {
+
+        ]);
+    let [lquestions, setLQuestion] = useState([
+
+    ]);
+    /*
+    {
             text:"Did you learn something new?",
             no_count:4,
             yes_count:4,
@@ -24,19 +30,17 @@ function CourseFeedback() {
             no_count:7,
             yes_count:1,
 
-}]);
-    let [lquestions, setLQuestion] = useState([
-
-    ]);
+}
+    */
     let scheight = screen.height * 0.70;
     scheight = scheight + "px";
     let { user } = useContext(AuthenticationContext);
     useEffect(() => {
         let questionsLoadet = (data) => {
-            //setQuestion([...data])
+            setQuestion([...data])
         }
         let onLectueQuestionLoadet= (data)=>{
-            //setLQuestion([...data])
+            setLQuestion([...data])
         }
         RequestTextFeedback(sessionId, user, questionsLoadet);
         RequestLoadQuestionResults(user,sessionId,onLectueQuestionLoadet)

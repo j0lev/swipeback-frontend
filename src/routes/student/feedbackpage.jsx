@@ -96,7 +96,7 @@ function Feedback() {
       <>
 
         <div className='container h-100 mt-5'>
-          <div className='row'><Headline>Feedback for: {JsonData.topic} taught by {JsonData.dozent.titel} {JsonData.dozent.vorname} {JsonData.dozent.name}</Headline></div>
+          <div className='row'><Headline>Feedback sliders for Sociology I by Prof. B. Gundetraut</Headline></div>
           <div className='row' style={{ height: scheight }} >
             <div className='col h-100'>
               <div className='card h-100'>
