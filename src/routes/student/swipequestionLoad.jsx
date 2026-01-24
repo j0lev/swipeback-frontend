@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import SwipePage from "./SwipePage";
 
 function SwipeQuestionLoad() {
-    let [qlist, setQlist] = useState([]);
+    let [qlist, setQlist] = useState(["Did you learn something new?",
+"Were the topics interesting?",
+"Was the pacing rushed?"]);
     let [fullList, setFulllist] = useState([])
     let { fbnr } = useParams();
     useEffect(() => {
@@ -13,8 +15,8 @@ function SwipeQuestionLoad() {
             for(let i =0;i<results.length;i++){
                 newarr.push(results[i].text)
             }
-            setFulllist([...results])
-            setQlist(newarr);
+            //setFulllist([...results])
+            //setQlist(newarr);
         }
         RequestLoadQuestionsByJoincode(fbnr, onQuestionsLoad)
     }, [])

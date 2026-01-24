@@ -50,8 +50,8 @@ function Dozentpage() {
                     </div>
                     <img alt="logo von swipeback" src={logo} style={{
                                 position: "absolute",
-                                top: "5rem",
-                                left: "7%",
+                                top: "2rem",
+                                left: "4%",
                                 width: "7rem",
                                 height: "auto",
                             }} />
