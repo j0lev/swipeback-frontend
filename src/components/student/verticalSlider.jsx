@@ -1,10 +1,15 @@
 import "../../styles/fb_page_slider.css";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
 //import { Alarm, Book, Lightbulb, ThreeDots } from "react-bootstrap-icons";
-import { useId } from "react";
+import {  useId } from "react";
 
 function VerticalSlider(props) {
     let barvolume = useId();
+    console.log(props.fill)
+    let fill=props.fill;
+        if(props.fill==null){
+            fill=50;
+        }
     let iconList = [
             <i class="bi icon bi-lightbulb fs-3"></i>,
             <i class="bi icon bi-book fs-3"></i>,
@@ -39,7 +44,7 @@ function VerticalSlider(props) {
                 <div className="container position-relative">
                     <div className="row h-90 d-flex justify-content-center">
                         <div id={barvolume} className="progress progress-bar-vertical" onClick={onClickSlide}>
-                            <div id={bar} onClick={onClickSlide} className="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style={{ height: "50%" , background: props.color}}></div>
+                            <div id={bar} onClick={onClickSlide} className="progress-bar" role="progressbar" aria-valuenow={fill} aria-valuemin="0" aria-valuemax="100" style={{ height: fill+"%" , background: props.color}}></div>
 
                             <div  className="icon-dot-box" onClick={onClickInformation}>
                                 <i class="bi bi-three-dots fs-3"></i>
