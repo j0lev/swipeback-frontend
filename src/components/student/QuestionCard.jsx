@@ -2,6 +2,11 @@
 import { useMotionValue, useTransform, motion } from "framer-motion";
 import { useState} from 'react';
 
+const COLORS = {
+  primary: "#665fbe",
+  secondary: "#faeeff",
+};
+
 const QuestionCard = ({ text, onSwipe, animate }) => {
   const x = useMotionValue(0);
   
@@ -12,9 +17,8 @@ const QuestionCard = ({ text, onSwipe, animate }) => {
   const background = useTransform(
     x,
     [-150, 0, 150],
-    ["#ffcccc", "#ffffff", "#ccffcc"]
+    ["#ffcccc", "#faeeff", "#ccffcc"]
   );
-  
 
   const handleDragEnd = (e, info) => {
     const threshold = 120;
@@ -51,6 +55,8 @@ const cardStyle = {
   width: "700px",
   height: "550px",
   borderRadius: "24px",
+  backgroundColor: COLORS.secondary,
+  border: '2px solid ${COLORS.primary}',
   boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
   display: "flex",
   alignItems: "center",
