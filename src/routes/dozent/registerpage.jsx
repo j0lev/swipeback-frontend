@@ -30,7 +30,7 @@ function RegisterPage() {
             goProfPage();
         } else {
             if ("detail" in result) {
-                document.getElementById("errMessage").innerText = "The repeated Password dosn't equal the entered Password";
+                document.getElementById("errMessage").innerText = "The repeated password doesn't equal the entered Password";
                 document.getElementById("errMessage").style.display = "block";
             }
         }
