@@ -209,10 +209,10 @@ function NewCourse() {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <p>All unsaved chainges will be removed. If you want to proceed click "Back to main manu".</p>
+                            <p>All unsaved chainges will be removed. If you want to proceed click "Back to main menu".</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" onClick={onClickMainmenu}>Back to main manu</button>
+                            <button type="button" class="btn btn-primary" onClick={onClickMainmenu}>Back to main menu</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
