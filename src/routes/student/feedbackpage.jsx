@@ -18,12 +18,12 @@ function Feedback() {
   const [questions, setQuestions] = useState([]);
   const [slider, setSlider] = useState([{
           iconnum: 0,
-          title: "Understandebility",
+          title: "Understandability",
           color: "yellow"
         },
         {
           iconnum: 1,
-          title: "Keep trak",
+          title: "Keeping track",
           color: "red"
         },
         {
