@@ -60,7 +60,7 @@ function Dozentpage() {
                             
                         </div>
                         <div className="col-6 d-flex justify-content-start">
-                            <a className="btn btn-primary" onClick={onClickCreateNewModule}>add new Course</a>
+                            <a className="btn btn-primary" onClick={onClickCreateNewModule}>Add new course</a>
                         </div>
                         <div className="col-3">
                             <a className="btn btn-danger" onClick={onClickLogout}>Logout</a>
