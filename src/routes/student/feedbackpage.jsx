@@ -32,7 +32,7 @@ function Feedback() {
           iconnum: 2,
           title: "Good pacing",
           color: "green",
-          percent: 100
+          percent: 50
         }
       ]);
   let onKeyPressQuestion = (event) => {
