@@ -3,7 +3,7 @@ import QuestionCard from "../../components/student/QuestionCard";
 import { RequestTextFeedback } from "../../requests/requestSession";
 import { useParams } from "react-router-dom";
 import { AuthenticationContext } from "../../context/authenticationContext";
-import diagram from "../../assets/placeholderGraphikforSliderFeedback.png";
+import diagram from "../../assets/placeholderGraphikforSliderFeedback2.png";
 import LectureQuestion from "../../components/dozent/lectureQuestion";
 import { RequestLoadQuestionResults } from "../../requests/requestFeedbackquestion";
 import Questiontext from "../../components/student/questiontext";
