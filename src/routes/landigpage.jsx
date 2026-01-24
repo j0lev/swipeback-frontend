@@ -46,12 +46,12 @@ function Landingpage() {
 
 
   return (
-    <div className="container d-flex justify-content-center ">
+    <div className="container d-flex justify-content-center mt-5">
       <div className='card w-50'>
         <div className='card-body justify-content-start'>
           <div class="mb-3 text-start">
             <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Exampleuser" />
+            <input type="text" class="form-control" id="username" placeholder="Enter Username" />
           </div>
           <div class="mb-3 text-start">
 
@@ -75,7 +75,7 @@ function Landingpage() {
               className='btn btn-primary'
 
             >
-              Enter Code
+              Enter code
             </button>
           </div>
           <div className='mb-3'>

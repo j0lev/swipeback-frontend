@@ -282,7 +282,7 @@ function NewCourse() {
                     </div>
                 </div>
             </div>
-            <div className="card">
+            <div className="card mt-5">
 
                 <div className="card-body">
 

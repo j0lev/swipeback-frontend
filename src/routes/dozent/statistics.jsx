@@ -26,7 +26,7 @@ function CourseFeedback() {
 
     },[])
     return (
-        <div className="container ">
+        <div className="container mt-5">
             <div className="row " style={{ height: scheight }}>
                 <div className="col-4 h-100">
                     <div className="card h-100">

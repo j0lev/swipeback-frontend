@@ -23,7 +23,7 @@ function SwipeQuestionLoad() {
     }else{
         return (
             <>
-      <div class="spinner-border" role="status">
+      <div class="spinner-border mt-5" role="status">
         <span class="sr-only"></span>
       </div>
     </>

@@ -16,7 +16,7 @@ function FeedbackCode() {
 
 
     return (
-    <div className="container d-flex justify-content-center ">
+    <div className="container d-flex justify-content-center mt-5">
       <div className='card w-50'>
         <div className='card-body justify-content-start'>
           <div class="mb-3 text-start">

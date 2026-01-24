@@ -41,7 +41,7 @@ function Dozentpage() {
     if (user.full_name != null) {
         return (
             <>
-                <div className="container">
+                <div className="container mt-5">
                     <div className="row">
                         <div className="col-12 justify-content-center">
                             <h3>Welcome {user.full_name}</h3>

@@ -92,7 +92,7 @@ function Feedback() {
     return (
       <>
 
-        <div className='container h-100'>
+        <div className='container h-100 mt-5'>
           <div className='row'><Headline>Feedback for: {JsonData.topic} taught by {JsonData.dozent.titel} {JsonData.dozent.vorname} {JsonData.dozent.name}</Headline></div>
           <div className='row' style={{ height: scheight }} >
             <div className='col h-100'>
@@ -138,7 +138,7 @@ function Feedback() {
       <>
 
 
-        <div class="modal fade" id="questionModal" tabindex="-1" aria-labelledby="questionModalLabel" aria-hidden="true">
+        <div class="modal fade " id="questionModal" tabindex="-1" aria-labelledby="questionModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -170,7 +170,7 @@ function Feedback() {
           </div>
         </div>
 
-        <div className='container h-100'>
+        <div className='container h-100 mt-5'>
           <div className='row'><h4 className="headline fs-3">Feedback for: {JsonData.topic} taught by {JsonData.dozent.titel} {JsonData.dozent.vorname} {JsonData.dozent.name}</h4></div>
           <div className='row' style={{ height: scheight }} >
 
