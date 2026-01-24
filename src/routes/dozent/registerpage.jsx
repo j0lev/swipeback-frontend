@@ -30,7 +30,7 @@ function RegisterPage() {
             goProfPage();
         } else {
             if ("detail" in result) {
-                document.getElementById("errMessage").innerText = "The repeated Password dosn't equal the entered Password";
+                document.getElementById("errMessage").innerText = "The repeated password doesn't equal the entered Password";
                 document.getElementById("errMessage").style.display = "block";
             }
         }
@@ -70,11 +70,11 @@ function RegisterPage() {
                 <div className='card-body justify-content-start'>
                     <div class="mb-3 text-start">
                         <label for="username" class="form-label">Username:</label>
-                        <input type="text" class="form-control" id="username" placeholder="Exampleuser" />
+                        <input type="text" class="form-control" id="username" placeholder="Enter username" />
                     </div>
                     <div class="mb-3 text-start">
                         <label for="fullname" class="form-label">Name:</label>
-                        <input type="text" class="form-control" id="fullname" placeholder="Examplename" />
+                        <input type="text" class="form-control" id="fullname" placeholder="Enter name" />
                     </div>
                     <div class="mb-3 text-start">
                         <label for="mail" class="form-label">E-mail</label>
