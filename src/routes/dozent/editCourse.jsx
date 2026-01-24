@@ -191,7 +191,9 @@ function NewCourse() {
             }
             RequestUpdateModule(document.getElementById("cname").value, fbnr, user, onHandleData)
             for (let i = 0; i < feedbackslider.length; i++) {
+                if( document.getElementById(feedbackslider[i] + "slidername")!=null){
                     RequestAddSlider(fbnr, user, document.getElementById(feedbackslider[i] + "slidername").value)
+                }
                 }
 
         }
