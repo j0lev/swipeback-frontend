@@ -1,5 +1,6 @@
 # Swipeback
 ![SwipebackLogo](./src/assets/HCILogo.png?raw=true "")
+
 A simple Feedbackpage to setup lectures and ask students for feedback.
 
 ##  Usage
