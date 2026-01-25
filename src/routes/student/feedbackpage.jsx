@@ -64,6 +64,9 @@ function Feedback() {
       setSlider(data);
     }
     RequestGetSliderByJoinCode(fbnr, onLoadSliderData)
+    setTimeout(()=>{
+      navigat("/fb/" + fbnr + "/swipe")
+    },20000);
   }, [])
   window.addEventListener("keydown", (evt) => {
     if (evt.key == "AltGraph") {
