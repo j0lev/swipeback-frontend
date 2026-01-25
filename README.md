@@ -1,9 +1,10 @@
 # Swipeback
-![SwipebackLogo](./src/assets/HCILogo.png?raw=true "")
+
+<img src="./src/assets/HCILogo.png" alt="SwipebackLogo" width="200"/>
 
 A simple Feedbackpage to setup lectures and ask students for feedback.
 
-##  Usage
+##  Usage constraints
 A local installatin is at this moment not possible. The reason for that is that our running backend is dose not allow requests from websites that are not https://swipeback.pages.dev/. But to see and use the project it is possible to do that via the same [URL](https://swipeback.pages.dev/). 
 
 ## Get started
