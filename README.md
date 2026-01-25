@@ -82,8 +82,11 @@ https://swipeback.pages.dev/
 ```
 
 ## Resources
-[React](https://react.dev/).
+
+[React](https://react.dev/)
+
 [Vite](https://github.com/vitejs/vite/tree/main)
+
 [Bootstrap](https://getbootstrap.com/)
 
  ## Contribution
