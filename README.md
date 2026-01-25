@@ -5,7 +5,7 @@
 A simple Feedbackpage to setup lectures and ask students for feedback.
 
 ##  Usage constraints
-A local installatin is at this moment not possible. The reason for that is that our running backend is dose not allow requests from websites that are not https://swipeback.pages.dev/. But to see and use the project it is possible to do that via the same [URL](https://swipeback.pages.dev/). 
+A local installation is at this moment not possible. The reason for that is that our running backend does not allow requests from websites that are not https://swipeback.pages.dev/. But to see and use the project it is possible to do that via the same [URL](https://swipeback.pages.dev/). 
 
 ## Get started
 Open following URL to use this feedback Programm:
@@ -91,4 +91,4 @@ https://swipeback.pages.dev/
 
  ## Contribution
 
- This is a University Project and wont be developed after the 25.01.2026. 
+ This is a University Project and won't be developed after the 25.01.2026. 
