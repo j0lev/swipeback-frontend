@@ -1,16 +1,89 @@
-# React + Vite
+# Swipeback
+![SwipebackLogo](./src/assets/HCILogo.png?raw=true "")
+A simple Feedbackpage to setup lectures and ask students for feedback.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##  Usage
+A local installatin is at this moment not possible. The reason for that is that our running backend is dose not allow requests from websites that are not https://swipeback.pages.dev/. But to see and use the project it is possible to do that via the same [URL](https://swipeback.pages.dev/). 
 
-Currently, two official plugins are available:
+## Get started
+Open following URL to use this feedback Programm:
+https://swipeback.pages.dev/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project structure
+```
+.
+├── public
+│   └── vite.svg
+├── src
+│   ├── assets
+│   │   ├── HCILogo.png
+│   │   ├── placeholderGraphikforSliderFeedback.png
+│   │   └── react.svg
+│   ├── components
+│   │   ├── dozent
+│   │   │   ├── colorpicker.jsx
+│   │   │   ├── daytimeselector.jsx
+│   │   │   ├── lectureQuestion.jsx
+│   │   │   ├── iconselector.jsx
+│   │   │   ├── settingFeedbackslider.jsx
+│   │   │   └── settingSwipeQuestions.jsx
+│   │   ├── student
+│   │   │   ├── QuestionCard.jsx
+│   │   │   ├── questiontext.jsx
+│   │   │   └── verticalSlider.jsx
+│   │   └── headline.jsx
+│   ├── context
+│   │   └── authenticationContext.jsx
+│   ├── controller
+│   │   └── useLobbyController.jsx
+│   ├── request
+│   │   ├── requestFeedbackquestion.jsx
+│   │   ├── requestItems.jsx
+│   │   ├── requestLogin.jsx
+│   │   ├── requestModules.jsx
+│   │   ├── requestRegister.jsx
+│   │   ├── requestSession.jsx
+│   │   ├── requestSlider.jsx
+│   │   ├── requestTextFeedback.jsx
+│   │   └── requestUserIformation.jsx
+│   ├── routes
+│   │   ├── dozent
+│   │   │   ├── dozentpage.jsx
+│   │   │   ├── editCourse.jsx
+│   │   │   ├── newCourse.jsx
+│   │   │   ├── registerpage.jsx
+│   │   │   └── statistics.jsx
+│   │   ├── student
+│   │   │   ├── feedbackcode.jsx
+│   │   │   ├── feedbackpage.jsx
+│   │   │   ├── SwipePage.jsx
+│   │   │   └── swipequestionLoad.jsx
+│   │   └── landingpage.jsx
+│   ├── styles
+│   │   ├── editpage_minus_plus_circle.css
+│   │   ├── fb_page_slider.css
+│   │   ├── fb-page.css
+│   │   ├── swipequestions.css
+│   │   ├── thema.scss
+│   │   └── title.css
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   └── index.jsx
+├── testfiles
+│   ├── test-feedback.json
+├── package-lock.json
+├── package.json
+├── index.html
+├── README.md
+└── vite.config.js
+```
 
-## React Compiler
+## Resources
+[React](https://react.dev/).
+[Vite](https://github.com/vitejs/vite/tree/main)
+[Bootstrap](https://getbootstrap.com/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+ ## Contribution
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+ This is a University Project and wont be developed after the 25.01.2026. 
