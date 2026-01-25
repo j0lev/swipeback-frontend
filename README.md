@@ -1,7 +1,7 @@
 # Swipeback
-
+<p align="center">
 <img src="./src/assets/HCILogo.png" alt="SwipebackLogo" width="200"/>
-
+</p>
 A simple Feedbackpage to setup lectures and ask students for feedback.
 
 ##  Usage constraints
