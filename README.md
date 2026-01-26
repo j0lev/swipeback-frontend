@@ -92,3 +92,4 @@ https://swipeback.pages.dev/
  ## Contribution
 
  This is a University Project and won't be developed after the 25.01.2026. 
+ The database is expected to expire on February 27, 2026. After this date, this application will no longer function as intended.
